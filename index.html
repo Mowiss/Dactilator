@@ -42,17 +42,25 @@
         .book-content h1 { font-family: var(--font-heading); font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; color: rgb(var(--rgb-accent)); border-bottom: 1px solid rgb(var(--rgb-accent)); padding-bottom: 0.5rem; text-shadow: 0 0 5px rgba(var(--rgb-accent),0.5); text-transform: uppercase; letter-spacing: 2px;}
         .theme-medieval .book-content h1 { text-shadow: none; border-bottom: 2px solid rgb(var(--rgb-accent)); }
         
-        .book-content p, .book-content .rich-text { margin-bottom: 1rem; line-height: 1.7; color: rgb(var(--rgb-muted)); white-space: pre-wrap; text-shadow: 0 0 2px rgba(var(--rgb-muted),0.3); text-align: justify; hyphens: auto; }
-        .theme-medieval .book-content p, .theme-medieval .book-content .rich-text { text-shadow: none; font-size: 1.1rem; }
+        .book-content p, .book-content .rich-text, .book-content td, .book-content th { line-height: 1.7; color: rgb(var(--rgb-muted)); white-space: pre-wrap; text-shadow: 0 0 2px rgba(var(--rgb-muted),0.3); text-align: justify; hyphens: auto; }
+        .theme-medieval .book-content p, .theme-medieval .book-content .rich-text, .theme-medieval .book-content td, .theme-medieval .book-content th { text-shadow: none; }
 
-        /* Images selon le thème */
+        body.text-size-sm .book-content { font-size: 0.875rem; }
+        body.text-size-normal .book-content { font-size: 1rem; }
+        body.text-size-lg .book-content { font-size: 1.125rem; }
+        body.text-size-xl .book-content { font-size: 1.25rem; }
+        
+        .theme-medieval.text-size-sm .book-content { font-size: 1rem; }
+        .theme-medieval.text-size-normal .book-content { font-size: 1.125rem; }
+        .theme-medieval.text-size-lg .book-content { font-size: 1.25rem; }
+        .theme-medieval.text-size-xl .book-content { font-size: 1.375rem; }
+
         .theme-cyberpunk .book-content img:not([alt="Bastos"]) { max-width: 100%; border: 1px solid rgb(var(--rgb-primary)); margin-bottom: 1rem; box-shadow: 0 0 10px rgba(var(--rgb-primary),0.2); filter: sepia(0.3) hue-rotate(180deg) saturate(1.5); }
         .theme-medieval .book-content img:not([alt="Bastos"]) { max-width: 100%; border: 2px solid rgb(var(--rgb-primary)); margin-bottom: 1rem; box-shadow: 4px 4px 0px rgba(var(--rgb-primary),0.2); border-radius: 4px; filter: sepia(0.4) contrast(0.9); }
         
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Styles pour le texte enrichi */
         .book-content b, .book-content strong { color: rgb(var(--rgb-primary)); font-weight: bold; text-shadow: 0 0 3px rgba(var(--rgb-primary),0.6); }
         .theme-medieval .book-content b, .theme-medieval .book-content strong { text-shadow: none; }
         .book-content i, .book-content em { color: rgb(var(--rgb-accent)); font-style: italic; }
@@ -60,57 +68,111 @@
         .book-content a { color: rgb(var(--rgb-success)); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; cursor: pointer; }
         .book-content a:hover { color: rgb(var(--rgb-base)); background-color: rgb(var(--rgb-success)); text-shadow: none; }
 
-        /* Effet scanline CRT (Seulement Cyberpunk) */
+        .drawer-link { color: rgb(var(--rgb-accent)); cursor: pointer; border-bottom: 1px dashed rgb(var(--rgb-accent)); transition: all 0.2s; font-weight: bold; }
+        .drawer-link:hover { background-color: rgb(var(--rgb-accent)); color: rgb(var(--rgb-base)); text-shadow: none; }
+
         .theme-cyberpunk.crt::before {
             content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
             z-index: 50; background-size: 100% 2px, 3px 100%; pointer-events: none; opacity: 0.3;
         }
         
-        /* Boutons d'interface */
+        /* Boutons */
         .retro-btn { border: 1px solid rgb(var(--rgb-primary)); color: rgb(var(--rgb-primary)); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; background: rgba(var(--rgb-primary),0.05); }
         .retro-btn:hover { background: rgb(var(--rgb-primary)); color: rgb(var(--rgb-base)); box-shadow: 0 0 10px rgb(var(--rgb-primary)); }
-        
         .retro-btn-danger { border: 1px solid rgb(var(--rgb-danger)); color: rgb(var(--rgb-danger)); background: rgba(var(--rgb-danger),0.05); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
         .retro-btn-danger:hover { background: rgb(var(--rgb-danger)); color: rgb(var(--rgb-base)); box-shadow: 0 0 10px rgb(var(--rgb-danger)); }
-        
         .retro-btn-success { border: 1px solid rgb(var(--rgb-success)); color: rgb(var(--rgb-success)); background: rgba(var(--rgb-success),0.05); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
         .retro-btn-success:hover { background: rgb(var(--rgb-success)); color: rgb(var(--rgb-base)); box-shadow: 0 0 10px rgb(var(--rgb-success)); }
-        
         .retro-btn-yellow { border: 1px solid rgb(var(--rgb-warn)); color: rgb(var(--rgb-warn)); background: rgba(var(--rgb-warn),0.05); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
         .retro-btn-yellow:hover { background: rgb(var(--rgb-warn)); color: rgb(var(--rgb-base)); box-shadow: 0 0 10px rgb(var(--rgb-warn)); }
-
         .theme-medieval .retro-btn:hover, .theme-medieval .retro-btn-danger:hover, .theme-medieval .retro-btn-success:hover, .theme-medieval .retro-btn-yellow:hover { box-shadow: none; }
 
-        /* Custom Color Picker */
         input[type="color"] { -webkit-appearance: none; border: 1px solid rgb(var(--rgb-primary)); padding: 0; width: 24px; height: 24px; cursor: pointer; background: rgb(var(--rgb-base)); }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 1px; }
         input[type="color"]::-webkit-color-swatch { border: none; }
 
-        /* Resizer */
+        input[type=range] { -webkit-appearance: none; background: transparent; width: 100%; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; background: rgb(var(--rgb-accent)); cursor: pointer; margin-top: -7px; border-radius: 50%; box-shadow: 0 0 5px rgb(var(--rgb-accent)); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: rgba(var(--rgb-primary), 0.3); border-radius: 2px; }
+
+        * { scrollbar-width: thin; scrollbar-color: rgba(var(--rgb-primary), 0.6) rgb(var(--rgb-panel)); }
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: rgb(var(--rgb-panel)); border-left: 1px solid rgba(var(--rgb-primary), 0.2); border-top: 1px solid rgba(var(--rgb-primary), 0.2); }
+        ::-webkit-scrollbar-thumb { background: rgba(var(--rgb-primary), 0.5); border: 1px solid rgb(var(--rgb-panel)); }
+        ::-webkit-scrollbar-thumb:hover { background: rgb(var(--rgb-primary)); }
+        .theme-medieval ::-webkit-scrollbar-thumb { border-radius: 4px; }
+
         .table-resizer { position: absolute; top: 0; right: -4px; width: 8px; height: 100%; cursor: col-resize; z-index: 20; background-color: transparent; transition: background-color 0.2s; }
         .table-resizer:hover, .table-resizer.active { background-color: rgb(var(--rgb-accent)); box-shadow: 0 0 5px rgb(var(--rgb-accent)); }
         .theme-medieval .table-resizer:hover, .theme-medieval .table-resizer.active { box-shadow: none; }
         .relative-cell { position: relative; }
 
-        /* Animation de néon défectueux */
         @keyframes neonFlicker {
             0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; filter: sepia(1) hue-rotate(180deg) saturate(2) drop-shadow(0 0 15px rgba(0,255,204,0.8)); }
             20%, 24%, 55% { opacity: 0.1; filter: none; }
         }
         .animate-neon-flicker { animation: neonFlicker 1.5s ease-in-out forwards; }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-0{bottom:0px}.left-0{left:0px}.-left-12{left:-3rem}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-40{z-index:40}.z-\[100\]{z-index:100}.z-\[110\]{z-index:110}.z-\[120\]{z-index:120}.z-\[200\]{z-index:200}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.mb-1{margin-bottom:0.25rem}.ml-2{margin-left:0.5rem}.mt-16{margin-top:4rem}.mt-1{margin-top:0.25rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-48{height:12rem}.h-8{height:2rem}.h-screen{height:100vh}.h-10{height:2.5rem}.min-h-\[8rem\]{min-height:8rem}.w-16{width:4rem}.w-64{width:16rem}.w-full{width:100%}.w-10{width:2.5rem}.w-fit{width:-moz-fit-content;width:fit-content}.w-px{width:1px}.min-w-max{min-width:max-content}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-3xl{max-width:48rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.cursor-grab{cursor:grab}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-l{border-left-width:1px}.border-b-2{border-bottom-width:2px}.border-dashed{border-style:dashed}.border-accent{--tw-border-opacity:1;border-color:rgba(var(--rgb-accent), var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgba(var(--rgb-primary), var(--tw-border-opacity, 1))}.border-\[\#00ffcc\]{--tw-border-opacity:1;border-color:rgb(0 255 204 / var(--tw-border-opacity, 1))}.border-danger{--tw-border-opacity:1;border-color:rgba(var(--rgb-danger), var(--tw-border-opacity, 1))}.border-opacity-30{--tw-border-opacity:0.3}.border-opacity-50{--tw-border-opacity:0.5}.bg-base{--tw-bg-opacity:1;background-color:rgba(var(--rgb-base), var(--tw-bg-opacity, 1))}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-panel{--tw-bg-opacity:1;background-color:rgba(var(--rgb-panel), var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgba(var(--rgb-primary), var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-primary\/5{background-color:rgba(var(--rgb-primary), 0.05)}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.pb-24{padding-bottom:6rem}.pr-4{padding-right:1rem}.pb-12{padding-bottom:3rem}.pl-4{padding-left:1rem}.pt-6{padding-top:1.5rem}.pt-1{padding-top:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.font-heading{font-family:var(--font-heading)}.font-main{font-family:var(--font-main)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-base{font-size:1rem;line-height:1.5rem}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.tracking-widest{letter-spacing:0.1em}.tracking-wider{letter-spacing:0.05em}.text-accent{--tw-text-opacity:1;color:rgba(var(--rgb-accent), var(--tw-text-opacity, 1))}.text-muted{--tw-text-opacity:1;color:rgba(var(--rgb-muted), var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgba(var(--rgb-primary), var(--tw-text-opacity, 1))}.text-base{--tw-text-opacity:1;color:rgba(var(--rgb-base), var(--tw-text-opacity, 1))}.text-danger{--tw-text-opacity:1;color:rgba(var(--rgb-danger), var(--tw-text-opacity, 1))}.text-warn{--tw-text-opacity:1;color:rgba(var(--rgb-warn), var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-20{opacity:0.2}.opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-0{opacity:0}.opacity-30{opacity:0.3}.shadow-\[0_-5px_15px_rgba\(var\(--rgb-primary\)\2c 0\.2\)\]{--tw-shadow:0 -5px 15px rgba(var(--rgb-primary),0.2);--tw-shadow-colored:0 -5px 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_10px_rgba\(var\(--rgb-primary\)\2c 0\.5\)\]{--tw-shadow:0 0 10px rgba(var(--rgb-primary),0.5);--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_15px_rgba\(var\(--rgb-primary\)\2c 0\.2\)\]{--tw-shadow:0 0 15px rgba(var(--rgb-primary),0.2);--tw-shadow-colored:0 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(var\(--rgb-primary\)\2c 0\.3\)\]{--tw-shadow:0 0 20px rgba(var(--rgb-primary),0.3);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[5px_0_15px_rgba\(var\(--rgb-primary\)\2c 0\.05\)\]{--tw-shadow:5px 0 15px rgba(var(--rgb-primary),0.05);--tw-shadow-colored:5px 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-\[0_0_2px_rgba\(var\(--rgb-primary\)\2c 1\)\]{--tw-drop-shadow:drop-shadow(0 0 2px rgba(var(--rgb-primary),1));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-200{transition-duration:200ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-accent:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-accent), var(--tw-bg-opacity, 1))}.hover\:bg-danger:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-danger), var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-primary), var(--tw-bg-opacity, 1))}.hover\:bg-warn:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-warn), var(--tw-bg-opacity, 1))}.hover\:text-base:hover{font-size:1rem;line-height:1.5rem}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgba(var(--rgb-accent), var(--tw-text-opacity, 1))}.hover\:text-base:hover{--tw-text-opacity:1;color:rgba(var(--rgb-base), var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-accent:focus{--tw-border-opacity:1;border-color:rgba(var(--rgb-accent), var(--tw-border-opacity, 1))}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgba(var(--rgb-primary), var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:cursor-grabbing:active{cursor:grabbing}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:flex{display:flex}}@media (min-width: 1280px){.xl\:inline-block{display:inline-block}}</style></head>
-<body id="app-body" class="theme-cyberpunk crt h-screen flex flex-col overflow-hidden relative">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.inset-y-0{top:0px;bottom:0px}.bottom-0{bottom:0px}.left-0{left:0px}.right-0{right:0px}.top-24{top:6rem}.-left-8{left:-2rem}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-40{z-index:40}.z-\[100\]{z-index:100}.z-\[110\]{z-index:110}.z-\[120\]{z-index:120}.z-\[150\]{z-index:150}.z-\[160\]{z-index:160}.z-\[180\]{z-index:180}.z-\[200\]{z-index:200}.z-\[45\]{z-index:45}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-4{margin-left:1rem}.mt-2{margin-top:0.5rem}.ml-2{margin-left:0.5rem}.mt-16{margin-top:4rem}.mt-1{margin-top:0.25rem}.block{display:block}.inline{display:inline}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-48{height:12rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-screen{height:100vh}.h-10{height:2.5rem}.h-4{height:1rem}.max-h-\[95vh\]{max-height:95vh}.max-h-full{max-height:100%}.min-h-\[250px\]{min-height:250px}.min-h-\[8rem\]{min-height:8rem}.w-1\/3{width:33.333333%}.w-16{width:4rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-full{width:100%}.w-10{width:2.5rem}.w-0{width:0px}.w-4{width:1rem}.w-fit{width:-moz-fit-content;width:fit-content}.w-px{width:1px}.min-w-max{min-width:max-content}.max-w-2xl{max-width:42rem}.max-w-\[60\%\]{max-width:60%}.max-w-full{max-width:100%}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-3xl{max-width:48rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.cursor-grab{cursor:grab}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-sm{border-radius:0.125rem}.rounded{border-radius:0.25rem}.rounded-r-xl{border-top-right-radius:0.75rem;border-bottom-right-radius:0.75rem}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-r-0{border-right-width:0px}.border-b-2{border-bottom-width:2px}.border-dashed{border-style:dashed}.border-accent\/50{border-color:rgba(var(--rgb-accent), 0.5)}.border-primary{--tw-border-opacity:1;border-color:rgba(var(--rgb-primary), var(--tw-border-opacity, 1))}.border-primary\/30{border-color:rgba(var(--rgb-primary), 0.3)}.border-accent{--tw-border-opacity:1;border-color:rgba(var(--rgb-accent), var(--tw-border-opacity, 1))}.border-danger{--tw-border-opacity:1;border-color:rgba(var(--rgb-danger), var(--tw-border-opacity, 1))}.border-opacity-30{--tw-border-opacity:0.3}.border-opacity-50{--tw-border-opacity:0.5}.bg-accent\/10{background-color:rgba(var(--rgb-accent), 0.1)}.bg-base{--tw-bg-opacity:1;background-color:rgba(var(--rgb-base), var(--tw-bg-opacity, 1))}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-black\/90{background-color:rgb(0 0 0 / 0.9)}.bg-panel{--tw-bg-opacity:1;background-color:rgba(var(--rgb-panel), var(--tw-bg-opacity, 1))}.bg-panel\/50{background-color:rgba(var(--rgb-panel), 0.5)}.bg-primary{--tw-bg-opacity:1;background-color:rgba(var(--rgb-primary), var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-primary\/5{background-color:rgba(var(--rgb-primary), 0.05)}.object-contain{object-fit:contain}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.pb-24{padding-bottom:6rem}.pl-16{padding-left:4rem}.pr-4{padding-right:1rem}.pt-4{padding-top:1rem}.pb-12{padding-bottom:3rem}.pl-4{padding-left:1rem}.pt-6{padding-top:1.5rem}.pt-1{padding-top:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-heading{font-family:var(--font-heading)}.font-main{font-family:var(--font-main)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-base{font-size:1rem;line-height:1.5rem}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-accent{--tw-text-opacity:1;color:rgba(var(--rgb-accent), var(--tw-text-opacity, 1))}.text-muted{--tw-text-opacity:1;color:rgba(var(--rgb-muted), var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgba(var(--rgb-primary), var(--tw-text-opacity, 1))}.text-base{--tw-text-opacity:1;color:rgba(var(--rgb-base), var(--tw-text-opacity, 1))}.text-danger{--tw-text-opacity:1;color:rgba(var(--rgb-danger), var(--tw-text-opacity, 1))}.text-warn{--tw-text-opacity:1;color:rgba(var(--rgb-warn), var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-0{opacity:0}.opacity-20{opacity:0.2}.opacity-50{opacity:0.5}.opacity-30{opacity:0.3}.shadow-\[-5px_0_20px_rgba\(var\(--rgb-primary\)\2c 0\.2\)\]{--tw-shadow:-5px 0 20px rgba(var(--rgb-primary),0.2);--tw-shadow-colored:-5px 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_-5px_15px_rgba\(var\(--rgb-primary\)\2c 0\.2\)\]{--tw-shadow:0 -5px 15px rgba(var(--rgb-primary),0.2);--tw-shadow-colored:0 -5px 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_-5px_15px_rgba\(var\(--rgb-primary\)\2c 0\.3\)\]{--tw-shadow:0 -5px 15px rgba(var(--rgb-primary),0.3);--tw-shadow-colored:0 -5px 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_10px_rgba\(var\(--rgb-primary\)\2c 0\.5\)\]{--tw-shadow:0 0 10px rgba(var(--rgb-primary),0.5);--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_15px_rgba\(var\(--rgb-primary\)\2c 0\.2\)\]{--tw-shadow:0 0 15px rgba(var(--rgb-primary),0.2);--tw-shadow-colored:0 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(var\(--rgb-primary\)\2c 0\.3\)\]{--tw-shadow:0 0 20px rgba(var(--rgb-primary),0.3);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_30px_rgba\(var\(--rgb-primary\)\2c 0\.4\)\]{--tw-shadow:0 0 30px rgba(var(--rgb-primary),0.4);--tw-shadow-colored:0 0 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_5px_15px_rgba\(var\(--rgb-primary\)\2c 0\.1\)\]{--tw-shadow:0 5px 15px rgba(var(--rgb-primary),0.1);--tw-shadow-colored:0 5px 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[5px_0_15px_rgba\(var\(--rgb-primary\)\2c 0\.05\)\]{--tw-shadow:5px 0 15px rgba(var(--rgb-primary),0.05);--tw-shadow-colored:5px 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[5px_0_15px_rgba\(var\(--rgb-primary\)\2c 0\.3\)\]{--tw-shadow:5px 0 15px rgba(var(--rgb-primary),0.3);--tw-shadow-colored:5px 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-\[0_0_2px_rgba\(var\(--rgb-primary\)\2c 1\)\]{--tw-drop-shadow:drop-shadow(0 0 2px rgba(var(--rgb-primary),1));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-200{transition-duration:200ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-accent:hover{--tw-border-opacity:1;border-color:rgba(var(--rgb-accent), var(--tw-border-opacity, 1))}.hover\:bg-accent:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-accent), var(--tw-bg-opacity, 1))}.hover\:bg-danger:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-danger), var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-primary), var(--tw-bg-opacity, 1))}.hover\:bg-warn:hover{--tw-bg-opacity:1;background-color:rgba(var(--rgb-warn), var(--tw-bg-opacity, 1))}.hover\:text-base:hover{font-size:1rem;line-height:1.5rem}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgba(var(--rgb-accent), var(--tw-text-opacity, 1))}.hover\:text-danger:hover{--tw-text-opacity:1;color:rgba(var(--rgb-danger), var(--tw-text-opacity, 1))}.hover\:text-base:hover{--tw-text-opacity:1;color:rgba(var(--rgb-base), var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-accent:focus{--tw-border-opacity:1;border-color:rgba(var(--rgb-accent), var(--tw-border-opacity, 1))}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgba(var(--rgb-primary), var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:cursor-grabbing:active{cursor:grabbing}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:w-96{width:24rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:-left-12{left:-3rem}.md\:flex{display:flex}}@media (min-width: 1280px){.xl\:inline-block{display:inline-block}}</style></head>
+<body id="app-body" class="theme-cyberpunk crt text-size-normal h-screen flex flex-col overflow-hidden relative">
 
-    <!-- ÉCRAN DE DÉMARRAGE -->
     <div id="boot-screen" class="fixed inset-0 bg-base z-[200] flex flex-col items-center justify-center font-main text-primary transition-opacity duration-500 cursor-pointer opacity-0 pointer-events-none hidden">
         <div id="boot-logo-container" class="mb-8 hidden w-full max-w-sm px-4"></div>
-        <div id="boot-term-text" class="text-left w-full max-w-lg space-y-1 text-xs sm:text-sm px-4 h-48 overflow-hidden drop-shadow-[0_0_2px_rgba(var(--rgb-primary),1)]"><div><span class="opacity-50">[09:59:12.445]</span> &gt; INITIALISATION DU KERNEL...</div><div><span class="opacity-50">[09:59:12.544]</span> &gt; ANALYSE DE LA MÉMOIRE MORTE : OK</div><div><span class="opacity-50">[09:59:13.186]</span> &gt; DÉCRYPTAGE DE L'ARCHITECTURE : OK</div><div><span class="opacity-50">[09:59:13.232]</span> &gt; VÉRIFICATION DES BLOCS DE DONNÉES : OK</div><div><span class="opacity-50">[09:59:14.166]</span> &gt; CHARGEMENT DE L'INTERFACE VISUELLE : OK</div><div><span class="opacity-50">[09:59:14.376]</span> &gt; ACCÈS AUTORISÉ.</div></div>
-        <div class="mt-8 animate-pulse text-[10px] text-accent border border-accent px-2 py-1 opacity-70">[ CLIQUEZ POUR PASSER ]</div>
+        <div id="boot-term-text" class="text-left w-full max-w-lg space-y-1 text-xs sm:text-sm px-4 h-48 overflow-hidden drop-shadow-[0_0_2px_rgba(var(--rgb-primary),1)]"><div><span class="opacity-50">[14:08:49.003]</span> &gt; INITIALISATION DU KERNEL...</div><div><span class="opacity-50">[14:08:49.968]</span> &gt; ANALYSE DE LA MÉMOIRE MORTE : OK</div><div><span class="opacity-50">[14:08:50.511]</span> &gt; DÉCRYPTAGE DE L'ARCHITECTURE : OK</div></div>
     </div>
 
-    <!-- MODAL DE CHOIX -->
+    <!-- NOUVEAU : Onglet Marque-Page Flottant -->
+    <button id="bookmark-tab" class="fixed top-24 left-0 z-[45] bg-panel border-y border-r border-primary text-primary hover:text-accent hover:border-accent py-3 px-2 rounded-r-xl transition-all duration-300 shadow-[5px_0_15px_rgba(var(--rgb-primary),0.3)] focus:outline-none flex items-center justify-center group" title="Ouvrir/Fermer le Sommaire" style="transform: translateX(0px);">
+        <svg class="w-6 h-8 transform group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+        </svg>
+    </button>
+
+    <div id="drawer-overlay" class="hidden fixed inset-0 bg-black/60 z-[150] backdrop-blur-sm transition-opacity opacity-0" onclick="app.closeDrawer()"></div>
+    <div id="drawer-panel" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-panel border-l border-primary z-[160] transform translate-x-full transition-transform duration-300 flex flex-col font-main shadow-[-5px_0_20px_rgba(var(--rgb-primary),0.2)]">
+        <div class="p-4 border-b border-primary flex justify-between items-center bg-base shadow-[0_5px_15px_rgba(var(--rgb-primary),0.1)] z-10 shrink-0">
+            <h2 id="drawer-title" class="text-accent font-bold font-heading uppercase tracking-widest text-lg">Tiroir</h2>
+            <button onclick="app.closeDrawer()" class="text-primary hover:text-danger text-2xl leading-none font-bold outline-none" title="Fermer le tiroir">×</button>
+        </div>
+        <div id="drawer-content" class="flex-1 overflow-y-auto p-6 relative bg-transparent book-content pb-24"></div>
+        <div id="drawer-toolbar" class="hidden absolute bottom-0 left-0 w-full bg-base border-t border-primary p-3 flex-wrap gap-2 justify-center z-20 shadow-[0_-5px_15px_rgba(var(--rgb-primary),0.3)]">
+            <button onclick="app.addDrawerBlock('TITLE')" class="retro-btn px-2 py-1 text-xs" title="Ajouter un Titre">Titre</button>
+            <button onclick="app.addDrawerBlock('TEXT')" class="retro-btn px-2 py-1 text-xs" title="Ajouter du Texte">Texte</button>
+            <button onclick="app.addDrawerBlock('IMAGE')" class="retro-btn px-2 py-1 text-xs" title="Ajouter une Image">Image</button>
+            <button onclick="app.addDrawerBlock('TABLE')" class="retro-btn px-2 py-1 text-xs" title="Ajouter un Tableau">Tableau</button>
+        </div>
+    </div>
+
+    <div id="image-opt-modal" class="hidden fixed inset-0 bg-black/90 z-[180] flex items-center justify-center backdrop-blur-md font-main">
+        <div class="bg-base border border-primary p-6 shadow-[0_0_30px_rgba(var(--rgb-primary),0.4)] max-w-2xl w-full mx-4 flex flex-col max-h-[95vh]">
+            <h3 class="text-accent font-bold text-lg mb-4 uppercase tracking-widest font-heading">&gt;&gt;&gt; CALIBRAGE OPTIQUE</h3>
+            <div class="flex-1 min-h-[250px] flex items-center justify-center border border-dashed border-primary bg-panel/50 mb-6 overflow-hidden p-2 relative rounded-sm">
+                <img id="image-opt-preview" src="" class="max-w-full max-h-full object-contain">
+            </div>
+            <div class="mb-6 space-y-5 bg-panel p-4 border border-primary/30">
+                <div class="flex justify-between items-center text-sm text-primary">
+                    <span class="font-bold tracking-wider">COMPRESSION DATA :</span>
+                    <span id="image-opt-val" class="font-bold text-accent px-2 py-1 bg-accent/10 border border-accent/50">70%</span>
+                </div>
+                <input type="range" id="image-opt-slider" min="0.05" max="1" step="0.05" value="0.7">
+                <div class="flex justify-between items-end border-t border-primary/30 pt-4 mt-2">
+                    <div class="text-xs text-muted max-w-[60%]">
+                        &gt; Ajustez la réglette pour équilibrer la qualité visuelle et le poids du document.
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[10px] text-muted uppercase tracking-widest mb-1">Poids Estimé</div>
+                        <div id="image-opt-size" class="text-xl font-bold font-heading">...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-4 shrink-0">
+                <button id="image-opt-cancel" class="retro-btn-danger py-3 text-sm font-bold w-1/3">ABORT</button>
+                <button id="image-opt-confirm" class="retro-btn-success py-3 text-sm font-bold flex-1 tracking-widest">INJECTER LA DONNÉE</button>
+            </div>
+        </div>
+    </div>
+
     <div id="choice-modal" class="hidden fixed inset-0 bg-black/80 z-[110] flex items-center justify-center backdrop-blur-sm font-main">
         <div class="bg-base border border-primary p-6 shadow-[0_0_20px_rgba(var(--rgb-primary),0.3)] max-w-sm w-full mx-4 text-center">
             <h3 id="choice-title" class="text-accent font-bold text-lg mb-6 uppercase tracking-widest font-heading"></h3>
@@ -122,7 +184,6 @@
         </div>
     </div>
 
-    <!-- MODAL SYSTÈME -->
     <div id="custom-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center backdrop-blur-sm font-main">
         <div class="bg-base border border-primary p-6 shadow-[0_0_20px_rgba(var(--rgb-primary),0.3)] max-w-md w-full mx-4">
             <h3 id="modal-title" class="text-accent font-bold text-lg mb-4 uppercase tracking-widest font-heading"></h3>
@@ -135,7 +196,6 @@
         </div>
     </div>
 
-    <!-- MODAL COULEUR -->
     <div id="color-modal" class="hidden fixed inset-0 bg-black/80 z-[120] flex items-center justify-center backdrop-blur-sm font-main">
         <div class="bg-base border border-primary p-6 shadow-[0_0_20px_rgba(var(--rgb-primary),0.3)] max-w-sm w-full mx-4 text-center">
             <h3 class="text-accent font-bold text-lg mb-4 uppercase tracking-widest font-heading">&gt;&gt;&gt; PALETTE SYSTÈME</h3>
@@ -151,27 +211,67 @@
         </div>
     </div>
 
-    <!-- BARRE SUPÉRIEURE -->
-    <header class="bg-panel border-b border-primary p-4 shadow-[0_0_15px_rgba(var(--rgb-primary),0.2)] flex justify-between items-center z-10 shrink-0 font-main">
+    <div id="settings-modal" class="hidden fixed inset-0 bg-black/80 z-[180] flex items-center justify-center backdrop-blur-sm font-main">
+        <div class="bg-base border border-primary p-6 shadow-[0_0_20px_rgba(var(--rgb-primary),0.3)] max-w-sm w-full mx-4">
+            <h3 class="text-accent font-bold text-lg mb-6 uppercase tracking-widest font-heading">&gt;&gt;&gt; PARAMÈTRES SYSTÈME</h3>
+            <div class="mb-4">
+                <label class="block text-primary text-sm font-bold mb-2 uppercase tracking-wider">Thème Visuel</label>
+                <select id="settings-theme" class="w-full bg-panel border border-primary text-primary p-2 focus:outline-none focus:border-accent font-main">
+                    <option value="cyberpunk">Cyberpunk (Néon/Sombre)</option>
+                    <option value="medieval">Médiéval (Parchemin/Encre)</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-primary text-sm font-bold mb-2 uppercase tracking-wider">Taille du Texte</label>
+                <select id="settings-text-size" class="w-full bg-panel border border-primary text-primary p-2 focus:outline-none focus:border-accent font-main">
+                    <option value="sm">Petit</option>
+                    <option value="normal">Normal (Défaut)</option>
+                    <option value="lg">Grand</option>
+                    <option value="xl">Très Grand</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-primary text-sm font-bold mb-2 uppercase tracking-wider">Logo de Démarrage</label>
+                <label class="w-full retro-btn-yellow py-2 flex items-center justify-center gap-2 text-sm font-bold cursor-pointer transition-colors">
+                    [ CHANGER LOGO SYS ]
+                    <input type="file" accept="image/*" class="hidden" onchange="app.handleLogoUpload(event)">
+                </label>
+            </div>
+            <div class="mb-8">
+                <label class="block text-primary text-sm font-bold mb-2 uppercase tracking-wider">Symbole Monnaie</label>
+                <label class="w-full retro-btn-yellow py-2 flex items-center justify-center gap-2 text-sm font-bold cursor-pointer transition-colors">
+                    [ CHANGER DEVISE ]
+                    <input type="file" accept="image/*" class="hidden" onchange="app.handleCurrencyLogoUpload(event)">
+                </label>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="app.closeSettings()" class="retro-btn-danger px-4 py-2 text-sm font-bold w-full">ANNULER</button>
+                <button onclick="app.saveSettings()" class="retro-btn-success px-4 py-2 text-sm font-bold w-full">APPLIQUER</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRE SUPÉRIEURE (Allégée) -->
+    <header class="bg-panel border-b border-primary p-4 shadow-[0_0_15px_rgba(var(--rgb-primary),0.2)] flex justify-between items-center z-10 shrink-0 font-main pl-16">
         <div class="flex items-center gap-4">
-            <button id="toggle-sidebar-btn" class="text-primary hover:text-accent transition-colors text-2xl font-bold px-2 focus:outline-none" title="Basculer la navigation">≡</button>
             <h1 class="text-xl font-bold tracking-widest text-primary uppercase transition-all duration-300 font-heading" id="header-title" title="">Mon Livre de Règles</h1>
         </div>
         <div class="flex gap-3">
-            <button id="toggle-theme-btn" class="text-primary opacity-50 hover:opacity-100 transition-opacity duration-300 text-sm px-2 py-1 font-heading uppercase" title="Changer le thème du livre">[ THÈME ]</button>
-            <button id="toggle-mode-btn" class="text-primary opacity-20 hover:opacity-100 transition-opacity duration-300 text-sm px-2 py-1 font-heading" title="Activer le mode Édition">&lt;/&gt;</button>
+            <button id="toggle-mode-btn" class="text-primary opacity-20 hover:opacity-100 transition-opacity duration-300 p-1" title="Activer le mode Édition">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- CONTENEUR PRINCIPAL -->
     <div class="flex flex-1 overflow-hidden z-0 font-main">
-        <aside id="sidebar" class="bg-panel border-primary flex flex-col overflow-y-auto hide-scrollbar shrink-0 shadow-[5px_0_15px_rgba(var(--rgb-primary),0.05)] transition-all duration-300 w-64 border-r">
+        <aside id="sidebar" class="bg-panel border-primary flex flex-col overflow-y-auto hide-scrollbar shrink-0 shadow-[5px_0_15px_rgba(var(--rgb-primary),0.05)] transition-all duration-300 relative z-10 w-0 border-r-0">
             <div id="sidebar-content" class="p-4 flex-1 w-64"><nav class="space-y-4"><div><div class="flex items-center justify-between group"><h3 class="font-bold uppercase tracking-wider text-xs mb-1 cursor-pointer transition-colors text-accent" onclick="app.toggleCollapse('tab_init', event)">▼ Chapitre 1 : Introduction</h3></div><ul class="space-y-1 pl-4 border-l border-primary border-opacity-30 ml-2 "><li class="flex items-center justify-between group"><a href="#" onclick="app.activeTabId='tab_init'; app.activePageId='page_init'; app.render(); return false;" class="block py-1 text-sm transition-colors text-accent">- Bienvenue</a></li></ul></div></nav></div>
         </aside>
-        <main class="flex-1 bg-transparent overflow-y-auto p-8 relative pb-24" id="main-content"><div class="max-w-3xl mx-auto book-content pb-12"><div class="group relative mb-6 block-wrapper transition-all duration-200" data-block-id="b1"><h1>Règles de base</h1></div><div class="group relative mb-6 block-wrapper transition-all duration-200" data-block-id="b2"><div class="rich-text">Bienvenue dans votre nouveau jeu de rôle. Utilisez le bouton en haut à droite pour commencer à rédiger.</div></div><div class="mt-16 pt-6 border-t border-[#00ffcc] border-opacity-30 flex justify-between items-center"><div></div><div></div></div></div></main>
+        <main class="flex-1 bg-transparent overflow-y-auto p-8 relative pb-24 z-0" id="main-content"><div class="max-w-3xl mx-auto book-content pb-12"><div class="group relative mb-6 block-wrapper transition-all duration-200" data-block-id="b1"><h1>Règles de base</h1></div><div class="group relative mb-6 block-wrapper transition-all duration-200" data-block-id="b2"><div class="rich-text">Bienvenue dans votre nouveau jeu de rôle. Utilisez l'icône de Code discrète en haut à droite pour commencer à rédiger.</div></div><div class="mt-16 pt-6 border-t border-primary border-opacity-30 flex justify-between items-center"><div></div><div></div></div></div></main>
     </div>
 
-    <!-- BANDEAU D'ÉDITION -->
     <div id="edit-toolbar" class="absolute bottom-0 left-0 w-full bg-panel border-t border-primary p-3 justify-between items-center z-40 shadow-[0_-5px_15px_rgba(var(--rgb-primary),0.2)] overflow-x-auto hide-scrollbar font-main hidden">
         <div class="flex items-center gap-4 min-w-max">
             <span class="text-accent text-xs font-bold tracking-widest uppercase animate-pulse hidden xl:inline-block">&gt;&gt;&gt; UPLINK</span>
@@ -179,14 +279,6 @@
             <div class="flex gap-2 border-r border-primary border-opacity-30 pr-4">
                 <button onclick="app.addTab()" class="retro-btn-yellow px-3 py-2 flex items-center gap-2 text-sm font-bold" title="Créer un Chapitre">+ DIR</button>
                 <button onclick="app.addPage()" class="retro-btn-yellow px-3 py-2 flex items-center gap-2 text-sm font-bold" title="Créer un Article">+ FILE</button>
-                <label class="retro-btn-yellow px-3 py-2 flex items-center gap-2 text-sm font-bold cursor-pointer" title="Définir l'image de démarrage">
-                    LOGO SYS
-                    <input type="file" accept="image/*" class="hidden" onchange="app.handleLogoUpload(event)">
-                </label>
-                <label class="retro-btn-yellow px-3 py-2 flex items-center gap-2 text-sm font-bold cursor-pointer" title="Définir le logo de la monnaie (D€VI$€)">
-                    D€VI$€
-                    <input type="file" accept="image/*" class="hidden" onchange="app.handleCurrencyLogoUpload(event)">
-                </label>
             </div>
             
             <div class="flex gap-2">
@@ -194,18 +286,19 @@
                 <button onclick="app.addBlock('TEXT')" class="retro-btn px-3 py-2 flex items-center gap-2 text-sm" title="Ajouter du Texte">Texte</button>
                 <button onclick="app.addBlock('IMAGE')" class="retro-btn px-3 py-2 flex items-center gap-2 text-sm" title="Ajouter une Image">Image</button>
                 <button onclick="app.addBlock('TEXT_IMAGE')" class="retro-btn px-3 py-2 flex items-center gap-2 text-sm" title="Ajouter Texte + Image">Texte + Image</button>
-                <!-- CORRECTION : Le bouton Tableau utilise désormais la classe standard -->
                 <button onclick="app.addBlock('TABLE')" class="retro-btn px-3 py-2 flex items-center gap-2 text-sm" title="Ajouter un Tableau">Tableau</button>
                 <button onclick="app.addBlock('TOC')" class="retro-btn-success px-3 py-2 flex items-center gap-2 text-sm" title="Ajouter un Sommaire Automatique">Sommaire</button>
             </div>
         </div>
         <div class="flex gap-3 ml-4">
+            <button onclick="app.openSettings()" class="retro-btn-yellow px-3 py-2 flex items-center justify-center font-bold" title="Paramètres du Livre">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"></path><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+            </button>
             <button id="btn-quit-edit" class="retro-btn-danger px-4 py-2 flex items-center gap-2 text-sm font-bold">DECONNECTER</button>
             <button id="compile-btn" class="retro-btn-success px-4 py-2 flex items-center gap-2 text-sm font-bold hidden md:flex">SAUVEGARDER</button>
         </div>
     </div>
 
-    <!-- ÉTAT DE L'APPLICATION -->
     <script id="app-state" type="application/json">{
     "bookTitle": "Mon Livre de Règles",
     "tabs": [
@@ -225,7 +318,7 @@
                         {
                             "id": "b2",
                             "type": "TEXT",
-                            "content": "Bienvenue dans votre nouveau jeu de rôle. Utilisez le bouton en haut à droite pour commencer à rédiger."
+                            "content": "Bienvenue dans votre nouveau jeu de rôle. Utilisez l'icône de Code discrète en haut à droite pour commencer à rédiger."
                         }
                     ]
                 }
@@ -234,10 +327,11 @@
     ],
     "appLogo": "",
     "currencyLogo": "",
-    "theme": "cyberpunk"
+    "theme": "cyberpunk",
+    "textSize": "normal",
+    "drawers": {}
 }</script>
 
-    <!-- MOTEUR JAVASCRIPT -->
     <script id="app-engine">
         const app = {
             state: null,
@@ -245,6 +339,7 @@
             sidebarOpen: window.innerWidth > 768,
             activeTabId: null,
             activePageId: null,
+            activeDrawerId: null, 
             draggedBlockId: null,
             collapsedTabs: [],
             savedSelectionRange: null,
@@ -254,24 +349,13 @@
             init() {
                 const stateEl = document.getElementById('app-state');
                 try { this.state = JSON.parse(stateEl.textContent); } 
-                catch (e) { this.state = { bookTitle: "Nouveau Livre", theme: "cyberpunk", appLogo: "", currencyLogo: "", tabs: [] }; }
+                catch (e) { this.state = { bookTitle: "Nouveau Livre", theme: "cyberpunk", appLogo: "", currencyLogo: "", tabs: [], drawers: {} }; }
 
-                if (this.state.appLogo === undefined) this.state.appLogo = "";
-                if (this.state.currencyLogo === undefined) this.state.currencyLogo = "";
-                if (this.state.theme === undefined) this.state.theme = "cyberpunk";
-
-                // Migration auto
-                this.state.tabs.forEach(tab => {
-                    tab.pages.forEach(page => {
-                        page.blocks.forEach(b => {
-                            if (b.type === 'IMAGE' && typeof b.content === 'string') { b.content = { url: b.content, height: 400 }; }
-                            if (b.type === 'TEXT_IMAGE' && typeof b.content.text === 'string') {
-                                b.content.blocks = [{ id: this.generateId(), type: 'TEXT', content: b.content.text }];
-                                delete b.content.text; b.content.imageHeight = 400;
-                            }
-                        });
-                    });
-                });
+                if (!this.state.appLogo) this.state.appLogo = "";
+                if (!this.state.currencyLogo) this.state.currencyLogo = "";
+                if (!this.state.theme) this.state.theme = "cyberpunk";
+                if (!this.state.textSize) this.state.textSize = "normal";
+                if (!this.state.drawers) this.state.drawers = {}; 
 
                 if (this.state.tabs.length > 0) {
                     this.activeTabId = this.state.tabs[0].id;
@@ -293,9 +377,9 @@
             applyThemeToBody() {
                 const body = document.getElementById('app-body');
                 if (this.state.theme === 'medieval') {
-                    body.className = 'theme-medieval h-screen flex flex-col overflow-hidden relative';
+                    body.className = `theme-medieval text-size-${this.state.textSize} h-screen flex flex-col overflow-hidden relative`;
                 } else {
-                    body.className = 'theme-cyberpunk crt h-screen flex flex-col overflow-hidden relative';
+                    body.className = `theme-cyberpunk crt text-size-${this.state.textSize} h-screen flex flex-col overflow-hidden relative`;
                 }
             },
 
@@ -363,89 +447,131 @@
                             }
                         }
                     }, delay + 200); 
-                    
                     delay += 2200; 
                 }
 
                 setTimeout(skipBoot, delay + 800);
             },
 
-            handleLogoUpload(event) {
-                const file = event.target.files[0]; 
-                if (!file) return;
-                
+            openImageOptimizer(file, maxWidth, maxHeight, callback) {
+                if (!file || !file.type.startsWith('image/')) return this.customAlert("FORMAT DE FICHIER INVALIDE. VEUILLEZ SÉLECTIONNER UNE IMAGE.");
+
+                const modal = document.getElementById('image-opt-modal');
+                const preview = document.getElementById('image-opt-preview');
+                const slider = document.getElementById('image-opt-slider');
+                const valDisplay = document.getElementById('image-opt-val');
+                const sizeDisplay = document.getElementById('image-opt-size');
+                const cancelBtn = document.getElementById('image-opt-cancel');
+                const confirmBtn = document.getElementById('image-opt-confirm');
+
                 const reader = new FileReader();
-                reader.onload = (e) => { 
+                reader.onload = (e) => {
                     const img = new Image();
                     img.onload = () => {
-                        const MAX_WIDTH = 800;
-                        const MAX_HEIGHT = 800;
                         let width = img.width;
                         let height = img.height;
-
-                        if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } } 
-                        else { if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; } }
-
+                        if (width > height) { if (width > maxWidth) { height *= maxWidth / width; width = maxWidth; } } 
+                        else { if (height > maxHeight) { width *= maxHeight / height; height = maxHeight; } }
+                        
                         const canvas = document.createElement('canvas');
                         canvas.width = width; canvas.height = height;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
 
-                        const optimizedDataUrl = canvas.toDataURL('image/webp', 0.8);
-                        this.state.appLogo = optimizedDataUrl;
-                        this.customAlert("LOGO SYSTÈME ENREGISTRÉ. SAUVEGARDEZ ET RECHARGEZ POUR VOIR L'EFFET.");
-                        this.render(); 
+                        let currentDataUrl = '';
+
+                        const updatePreview = () => {
+                            const quality = parseFloat(slider.value);
+                            valDisplay.textContent = Math.round(quality * 100) + '%';
+                            currentDataUrl = canvas.toDataURL('image/webp', quality);
+                            preview.src = currentDataUrl;
+
+                            const bytes = Math.round(currentDataUrl.length * 0.75);
+                            const kb = (bytes / 1024).toFixed(1);
+                            sizeDisplay.textContent = kb + ' Ko';
+                            
+                            if (kb > 500) sizeDisplay.className = "text-2xl font-bold font-heading text-danger";
+                            else if (kb > 250) sizeDisplay.className = "text-xl font-bold font-heading text-warn";
+                            else sizeDisplay.className = "text-xl font-bold font-heading text-success";
+                        };
+
+                        slider.value = 0.7; 
+                        updatePreview();
+                        slider.oninput = updatePreview;
+                        
+                        modal.classList.remove('hidden');
+
+                        const cleanup = () => {
+                            modal.classList.add('hidden');
+                            confirmBtn.onclick = null;
+                            cancelBtn.onclick = null;
+                            slider.oninput = null;
+                            preview.src = '';
+                        };
+
+                        cancelBtn.onclick = cleanup;
+                        confirmBtn.onclick = () => { cleanup(); callback(currentDataUrl); };
                     };
-                    img.src = e.target.result; 
+                    img.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             },
 
-            handleCurrencyLogoUpload(event) {
-                const file = event.target.files[0]; 
-                if (!file) return;
+            handleLogoUpload(event) {
+                const file = event.target.files[0];
+                event.target.value = ''; 
+                if(!file) return;
                 
-                const reader = new FileReader();
-                reader.onload = (e) => { 
-                    const img = new Image();
-                    img.onload = () => {
-                        const MAX_SIZE = 100;
-                        let width = img.width;
-                        let height = img.height;
+                this.closeSettings();
+                
+                this.openImageOptimizer(file, 800, 800, (optimizedData) => {
+                    this.state.appLogo = optimizedData;
+                    this.customAlert("LOGO SYSTÈME ENREGISTRÉ. SAUVEGARDEZ ET RECHARGEZ POUR VOIR L'EFFET.");
+                    this.render();
+                });
+            },
 
-                        if (width > height) { if (width > MAX_SIZE) { height *= MAX_SIZE / width; width = MAX_SIZE; } } 
-                        else { if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; } }
+            handleCurrencyLogoUpload(event) {
+                const file = event.target.files[0];
+                event.target.value = '';
+                if(!file) return;
+                
+                this.closeSettings();
+                
+                this.openImageOptimizer(file, 100, 100, (optimizedData) => {
+                    this.state.currencyLogo = optimizedData;
+                    this.customAlert("LOGO DEVISE ENREGISTRÉ. VOUS POUVEZ MAINTENANT L'INSÉRER DANS VOS TEXTES.");
+                    this.render();
+                });
+            },
 
-                        const canvas = document.createElement('canvas');
-                        canvas.width = width; canvas.height = height;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, width, height);
+            handleImageUpload(event, blockId) {
+                const file = event.target.files[0];
+                event.target.value = ''; 
+                if(!file) return;
 
-                        const optimizedDataUrl = canvas.toDataURL('image/webp', 0.7);
-                        this.state.currencyLogo = optimizedDataUrl;
-                        this.customAlert("LOGO D€VI$€ ENREGISTRÉ. VOUS POUVEZ MAINTENANT L'INSÉRER DANS VOS TEXTES.");
-                        this.render(); 
-                    };
-                    img.src = e.target.result; 
-                };
-                reader.readAsDataURL(file);
+                this.openImageOptimizer(file, 1200, 1200, (optimizedDataUrl) => {
+                    let context = this.activeDrawerId ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                    const block = context.find(b => b.id === blockId);
+                    if (block) {
+                        if (block.type === 'TEXT_IMAGE') block.content.image = optimizedDataUrl;
+                        else if (block.type === 'IMAGE') block.content.url = optimizedDataUrl;
+                    }
+                    this.activeDrawerId ? this.renderDrawer() : this.render();
+                });
             },
 
             initColorPicker() {
                 const colorsCyberpunk = ['#00ffcc', '#ff00aa', '#ff0055', '#00ffaa', '#ffffff', '#a3a3c2', '#ffff00', '#ff8800', '#0088ff', '#8800ff'];
                 const colorsMedieval = ['#2c1e16', '#8b0000', '#a52a2a', '#228b22', '#000000', '#5e4c41', '#b8860b', '#d2691e', '#191970', '#4b0082'];
                 const colors = this.state.theme === 'medieval' ? colorsMedieval : colorsCyberpunk;
-                
-                // Set default matching the theme if first load
                 this.selectedColor = colors[0];
-
                 const grid = document.getElementById('color-grid');
                 grid.innerHTML = '';
                 colors.forEach(color => {
                     const btn = document.createElement('button');
                     btn.className = `w-10 h-10 border border-primary hover:scale-110 transition-all cursor-pointer`;
-                    btn.style.backgroundColor = color;
-                    btn.style.color = color;
+                    btn.style.backgroundColor = color; btn.style.color = color;
                     btn.onclick = () => {
                         this.selectedColor = color;
                         document.getElementById('color-preview').style.backgroundColor = color;
@@ -453,6 +579,25 @@
                     grid.appendChild(btn);
                 });
                 document.getElementById('color-preview').style.backgroundColor = this.selectedColor;
+            },
+
+            openSettings() {
+                document.getElementById('settings-theme').value = this.state.theme;
+                document.getElementById('settings-text-size').value = this.state.textSize || 'normal';
+                document.getElementById('settings-modal').classList.remove('hidden');
+            },
+
+            closeSettings() {
+                document.getElementById('settings-modal').classList.add('hidden');
+            },
+
+            saveSettings() {
+                this.state.theme = document.getElementById('settings-theme').value;
+                this.state.textSize = document.getElementById('settings-text-size').value;
+                this.applyThemeToBody();
+                this.initColorPicker();
+                this.render();
+                this.closeSettings();
             },
 
             openColorPicker(callback) {
@@ -467,17 +612,8 @@
             },
 
             bindEvents() {
-                // NOUVEAU: Changement de thème
-                document.getElementById('toggle-theme-btn').addEventListener('click', () => {
-                    this.state.theme = this.state.theme === 'medieval' ? 'cyberpunk' : 'medieval';
-                    this.applyThemeToBody();
-                    this.initColorPicker();
-                    this.render();
-                });
-
-                document.getElementById('toggle-sidebar-btn').addEventListener('click', () => {
-                    this.sidebarOpen = !this.sidebarOpen;
-                    this.render();
+                document.getElementById('bookmark-tab').addEventListener('click', () => {
+                    this.sidebarOpen = !this.sidebarOpen; this.render();
                 });
 
                 document.getElementById('toggle-mode-btn').addEventListener('click', () => { this.isEditMode = true; this.render(); });
@@ -502,6 +638,76 @@
                         }
                     }
                 });
+
+                document.addEventListener('click', (e) => {
+                    const drawerLink = e.target.closest('.drawer-link');
+                    if (drawerLink) {
+                        e.preventDefault();
+                        const drawerId = drawerLink.getAttribute('data-drawer-id');
+                        if (drawerId) this.openDrawer(drawerId);
+                    }
+                });
+            },
+
+            openDrawer(drawerId) {
+                if (!this.state.drawers[drawerId]) return this.customAlert("Tiroir introuvable ou supprimé.");
+                this.activeDrawerId = drawerId;
+                
+                const overlay = document.getElementById('drawer-overlay');
+                const panel = document.getElementById('drawer-panel');
+                
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    panel.classList.remove('translate-x-full');
+                }, 10);
+                
+                this.renderDrawer();
+            },
+
+            closeDrawer() {
+                const overlay = document.getElementById('drawer-overlay');
+                const panel = document.getElementById('drawer-panel');
+                
+                panel.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    this.activeDrawerId = null;
+                }, 300);
+            },
+
+            addDrawerBlock(type) {
+                if (!this.activeDrawerId) return;
+                const drawer = this.state.drawers[this.activeDrawerId];
+                
+                let content = "";
+                if(type === 'TITLE') content = "Nouveau Sous-Titre";
+                else if(type === 'TEXT') content = "Définition ou règle additionnelle...";
+                else if(type === 'TABLE') content = [["Attribut", "Valeur"], ["Force", "15"]];
+                else if(type === 'IMAGE') content = { url: "", height: 200 };
+                
+                const newBlock = { id: this.generateId(), type: type, content: content };
+                if (type === 'TABLE') newBlock.colWidths = [50, 50];
+                
+                drawer.blocks.push(newBlock);
+                this.renderDrawer();
+            },
+
+            deleteDrawerBlock(blockId) {
+                this.customConfirm("SUPPRIMER CE BLOC DU TIROIR ?", () => {
+                    const drawer = this.state.drawers[this.activeDrawerId];
+                    drawer.blocks = drawer.blocks.filter(b => b.id !== blockId);
+                    this.renderDrawer();
+                });
+            },
+
+            updateDrawerBlockContent(blockId, newContent) {
+                if(!this.activeDrawerId) return;
+                const drawer = this.state.drawers[this.activeDrawerId];
+                const block = drawer.blocks.find(b => b.id === blockId);
+                if(block) block.content = newContent;
             },
 
             formatText(command, value = null) {
@@ -512,14 +718,8 @@
                 }
 
                 if (command === 'insertCurrency') {
-                    if (!this.state.currencyLogo) {
-                        this.customAlert("VEUILLEZ D'ABORD IMPORTER LE LOGO D€VI$€ (BOUTON JAUNE EN BAS).");
-                        return;
-                    }
-                    if (this.savedSelectionRange) {
-                        sel.removeAllRanges(); 
-                        sel.addRange(this.savedSelectionRange);
-                    }
+                    if (!this.state.currencyLogo) return this.customAlert("VEUILLEZ D'ABORD IMPORTER LE LOGO DEVISE (ENGRENAGE PARAMÈTRES).");
+                    if (this.savedSelectionRange) { sel.removeAllRanges(); sel.addRange(this.savedSelectionRange); }
                     const imgHtml = `<img src="${this.state.currencyLogo}" class="inline-block h-[1em] align-middle mx-1" style="filter:none;" alt="Bastos">`;
                     document.execCommand('insertHTML', false, imgHtml);
                     this.forceSaveActiveBlock();
@@ -534,6 +734,24 @@
                             this.forceSaveActiveBlock();
                         });
                     } else this.customAlert("SÉLECTIONNEZ DU TEXTE POUR CRÉER UN LIEN.");
+                    return;
+                }
+
+                if (command === 'createDrawer') {
+                    if (!sel.isCollapsed && sel.rangeCount > 0) {
+                        const selectedText = sel.toString();
+                        this.customPrompt("NOM DU TIROIR (Identifiant de recherche) :", selectedText, (title) => {
+                            sel.removeAllRanges(); sel.addRange(this.savedSelectionRange);
+                            
+                            const drawerId = 'drawer_' + this.generateId();
+                            this.state.drawers[drawerId] = { title: title, blocks: [] };
+                            
+                            const html = `<span class="drawer-link" data-drawer-id="${drawerId}">${selectedText}</span>`;
+                            document.execCommand('insertHTML', false, html);
+                            this.forceSaveActiveBlock();
+                            this.customAlert("Tiroir créé ! Cliquez sur le mot souligné (même en mode édition) pour l'ouvrir et ajouter du contenu.");
+                        });
+                    } else this.customAlert("SÉLECTIONNEZ DU TEXTE POUR LE TRANSFORMER EN MOT-TIROIR.");
                     return;
                 }
 
@@ -563,8 +781,11 @@
                 if (activeEl) {
                     const blockId = activeEl.getAttribute('data-block-id');
                     const subId = activeEl.getAttribute('data-sub-id');
+                    const isDrawer = activeEl.getAttribute('data-is-drawer') === 'true';
                     
-                    if (subId) {
+                    if (isDrawer && blockId) {
+                        this.updateDrawerBlockContent(blockId, activeEl.innerHTML);
+                    } else if (subId) {
                         this.updateSubBlockContent(blockId, subId, activeEl.innerHTML);
                     } else if (blockId) {
                         this.updateBlockContent(blockId, activeEl.innerHTML);
@@ -572,66 +793,10 @@
                 }
             },
 
-            addSubBlock(blockId, type) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
-                if(block && block.type === 'TEXT_IMAGE') {
-                    const content = type === 'TITLE' ? "Nouveau Titre" : "Saisissez votre texte...";
-                    block.content.blocks.push({ id: this.generateId(), type: type, content: content });
-                    this.render();
-                }
-            },
-
-            updateSubBlockContent(blockId, subId, newContent) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
-                if(block && block.type === 'TEXT_IMAGE') {
-                    const sub = block.content.blocks.find(s => s.id === subId);
-                    if(sub) sub.content = newContent;
-                }
-            },
-
-            deleteSubBlock(blockId, subId) {
-                this.customConfirm("SUPPRIMER CE SOUS-ÉLÉMENT ?", () => {
-                    const page = this.getActivePage();
-                    const block = page.blocks.find(b => b.id === blockId);
-                    if(block && block.type === 'TEXT_IMAGE') {
-                        block.content.blocks = block.content.blocks.filter(s => s.id !== subId);
-                        this.render();
-                    }
-                });
-            },
-
-            moveSubBlock(blockId, subId, direction) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
-                if(block && block.type === 'TEXT_IMAGE') {
-                    const idx = block.content.blocks.findIndex(s => s.id === subId);
-                    if (idx < 0) return;
-                    if (direction === -1 && idx > 0) {
-                        [block.content.blocks[idx-1], block.content.blocks[idx]] = [block.content.blocks[idx], block.content.blocks[idx-1]];
-                    } else if (direction === 1 && idx < block.content.blocks.length - 1) {
-                        [block.content.blocks[idx+1], block.content.blocks[idx]] = [block.content.blocks[idx], block.content.blocks[idx+1]];
-                    }
-                    this.render();
-                }
-            },
-
-            updateImageHeight(blockId, height) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
-                if(block) {
-                    if(block.type === 'IMAGE') block.content.height = parseInt(height);
-                    if(block.type === 'TEXT_IMAGE') block.content.imageHeight = parseInt(height);
-                    
-                    const img = document.getElementById(`img-${blockId}`);
-                    if(img) img.style.maxHeight = height + 'px';
-                }
-            },
-
-            initResize(e, blockId, colIdx) {
+            initResize(e, blockId, colIdx, isDrawer = false) {
                 e.preventDefault(); e.stopPropagation();
-                const block = this.getActivePage().blocks.find(b => b.id === blockId);
+                let blocksContext = isDrawer ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                const block = blocksContext.find(b => b.id === blockId);
                 if(!block || block.type !== 'TABLE') return;
                 
                 if (!block.colWidths || block.colWidths.length !== block.content[0].length) {
@@ -640,7 +805,7 @@
 
                 const table = document.querySelector(`.table-block-${blockId}`);
                 this.resizing = {
-                    active: true, blockId: blockId, colIdx: colIdx,
+                    active: true, blockId: blockId, colIdx: colIdx, isDrawer: isDrawer,
                     startX: e.pageX, tableWidth: table.offsetWidth,
                     startWidth: block.colWidths[colIdx], nextStartWidth: block.colWidths[colIdx + 1]
                 };
@@ -659,14 +824,17 @@
                 let newNextWidth = this.resizing.nextStartWidth - percentChange;
 
                 if(newWidth > 5 && newNextWidth > 5) {
-                    const block = this.getActivePage().blocks.find(b => b.id === this.resizing.blockId);
-                    block.colWidths[this.resizing.colIdx] = newWidth;
-                    block.colWidths[this.resizing.colIdx + 1] = newNextWidth;
-                    
-                    const cols = document.querySelectorAll(`.table-block-${this.resizing.blockId} col`);
-                    if(cols.length > 0) {
-                        cols[this.resizing.colIdx].style.width = newWidth + '%';
-                        cols[this.resizing.colIdx + 1].style.width = newNextWidth + '%';
+                    let blocksContext = this.resizing.isDrawer ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                    const block = blocksContext.find(b => b.id === this.resizing.blockId);
+                    if(block) {
+                        block.colWidths[this.resizing.colIdx] = newWidth;
+                        block.colWidths[this.resizing.colIdx + 1] = newNextWidth;
+                        
+                        const cols = document.querySelectorAll(`.table-block-${this.resizing.blockId} col`);
+                        if(cols.length > 0) {
+                            cols[this.resizing.colIdx].style.width = newWidth + '%';
+                            cols[this.resizing.colIdx + 1].style.width = newNextWidth + '%';
+                        }
                     }
                 }
             },
@@ -686,18 +854,14 @@
                 const textEl = document.getElementById('modal-text');
                 const cancelBtn = document.getElementById('modal-cancel');
                 const confirmBtn = document.getElementById('modal-confirm');
-
                 titleEl.textContent = message; inputEl.value = defaultValue || '';
                 inputEl.classList.remove('hidden'); textEl.classList.add('hidden');
                 cancelBtn.classList.remove('hidden'); modal.classList.remove('hidden'); inputEl.focus();
-
                 const cleanup = () => { modal.classList.add('hidden'); confirmBtn.onclick = null; cancelBtn.onclick = null; inputEl.removeEventListener('keyup', onEnter); };
                 const onEnter = (e) => { if (e.key === 'Enter') confirmBtn.click(); }; inputEl.addEventListener('keyup', onEnter);
-
                 confirmBtn.onclick = () => { let val = inputEl.value.trim(); if(!val) val = "Sans titre"; cleanup(); callback(val); };
                 cancelBtn.onclick = cleanup;
             },
-
             customConfirm(message, callback) {
                 const modal = document.getElementById('custom-modal');
                 document.getElementById('modal-title').textContent = ">>> REQUÊTE DE CONFIRMATION";
@@ -706,12 +870,10 @@
                 document.getElementById('modal-input').classList.add('hidden');
                 document.getElementById('modal-cancel').classList.remove('hidden');
                 modal.classList.remove('hidden');
-
                 const cleanup = () => { modal.classList.add('hidden'); document.getElementById('modal-confirm').onclick = null; document.getElementById('modal-cancel').onclick = null; };
                 document.getElementById('modal-confirm').onclick = () => { cleanup(); callback(); };
                 document.getElementById('modal-cancel').onclick = cleanup;
             },
-
             customAlert(message) {
                 const modal = document.getElementById('custom-modal');
                 document.getElementById('modal-title').textContent = ">>> SYSTÈME AVERTISSEMENT";
@@ -720,7 +882,6 @@
                 document.getElementById('modal-input').classList.add('hidden');
                 document.getElementById('modal-cancel').classList.add('hidden');
                 modal.classList.remove('hidden');
-
                 const cleanup = () => { modal.classList.add('hidden'); document.getElementById('modal-confirm').onclick = null; };
                 document.getElementById('modal-confirm').onclick = cleanup;
             },
@@ -734,7 +895,6 @@
                     this.activeTabId = tabId; this.activePageId = pageId; this.render();
                 });
             },
-
             deleteTab(tabId) {
                 this.customConfirm("SUPPRIMER CE CHAPITRE ET TOUTES SES PAGES ?", () => {
                     this.state.tabs = this.state.tabs.filter(t => t.id !== tabId);
@@ -745,7 +905,6 @@
                     this.render();
                 });
             },
-
             addPage() {
                 if (!this.activeTabId) return this.customAlert("ERREUR : CRÉEZ D'ABORD UN CHAPITRE (DIR).");
                 this.customPrompt("NOM DU NOUVEL ARTICLE :", "", (title) => {
@@ -755,7 +914,6 @@
                     tab.pages.push(newPage); this.activePageId = newPage.id; this.render();
                 });
             },
-
             deletePage(tabId, pageId) {
                 this.customConfirm("SUPPRIMER CETTE PAGE ?", () => {
                     const tab = this.state.tabs.find(t => t.id === tabId);
@@ -764,7 +922,6 @@
                     this.render();
                 });
             },
-
             addBlock(type) {
                 if(!this.activeTabId || !this.activePageId) return this.customAlert("SÉLECTIONNEZ UNE PAGE D'ABORD.");
                 const page = this.getActivePage(); if(!page) return;
@@ -776,73 +933,96 @@
                 else if(type === 'IMAGE') content = { url: "", height: 400 };
                 else if(type === 'TEXT_IMAGE') content = { 
                     blocks: [{ id: this.generateId(), type: 'TEXT', content: "Saisissez votre description ici..." }], 
-                    image: "", 
-                    imagePos: "right",
-                    imageHeight: 400
+                    image: "", imagePos: "right", imageHeight: 400
                 };
                 else if(type === 'TOC') content = "SOMMAIRE DU SYSTÈME";
                 
                 const newBlock = { id: this.generateId(), type: type, content: content };
                 if (type === 'TABLE') newBlock.colWidths = [50, 50];
-                
-                page.blocks.push(newBlock);
-                this.render();
+                page.blocks.push(newBlock); this.render();
             },
-
             updateBlockContent(blockId, newContent) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
-                if(block) {
-                    if (block.type !== 'TEXT_IMAGE' && block.type !== 'IMAGE') {
-                        block.content = newContent;
-                    }
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                if(block && block.type !== 'TEXT_IMAGE' && block.type !== 'IMAGE') block.content = newContent;
+            },
+            addSubBlock(blockId, type) {
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                if(block && block.type === 'TEXT_IMAGE') {
+                    const content = type === 'TITLE' ? "Nouveau Titre" : "Saisissez votre texte...";
+                    block.content.blocks.push({ id: this.generateId(), type: type, content: content }); this.render();
                 }
             },
-
-            toggleTextImagePos(blockId) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
+            updateSubBlockContent(blockId, subId, newContent) {
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
                 if(block && block.type === 'TEXT_IMAGE') {
-                    block.content.imagePos = block.content.imagePos === 'right' ? 'left' : 'right';
+                    const sub = block.content.blocks.find(s => s.id === subId);
+                    if(sub) sub.content = newContent;
+                }
+            },
+            deleteSubBlock(blockId, subId) {
+                this.customConfirm("SUPPRIMER CE SOUS-ÉLÉMENT ?", () => {
+                    const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                    if(block && block.type === 'TEXT_IMAGE') {
+                        block.content.blocks = block.content.blocks.filter(s => s.id !== subId); this.render();
+                    }
+                });
+            },
+            moveSubBlock(blockId, subId, direction) {
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                if(block && block.type === 'TEXT_IMAGE') {
+                    const idx = block.content.blocks.findIndex(s => s.id === subId); if (idx < 0) return;
+                    if (direction === -1 && idx > 0) [block.content.blocks[idx-1], block.content.blocks[idx]] = [block.content.blocks[idx], block.content.blocks[idx-1]];
+                    else if (direction === 1 && idx < block.content.blocks.length - 1) [block.content.blocks[idx+1], block.content.blocks[idx]] = [block.content.blocks[idx], block.content.blocks[idx+1]];
                     this.render();
                 }
             },
-
+            toggleTextImagePos(blockId) {
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                if(block && block.type === 'TEXT_IMAGE') { block.content.imagePos = block.content.imagePos === 'right' ? 'left' : 'right'; this.render(); }
+            },
+            updateImageHeight(blockId, height) {
+                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                if(block) {
+                    if(block.type === 'IMAGE') block.content.height = parseInt(height);
+                    if(block.type === 'TEXT_IMAGE') block.content.imageHeight = parseInt(height);
+                    const img = document.getElementById(`img-${blockId}`); if(img) img.style.maxHeight = height + 'px';
+                }
+            },
             updateTableCell(blockId, rowIdx, colIdx, value) {
-                const page = this.getActivePage();
-                const block = page.blocks.find(b => b.id === blockId);
+                let context = this.getActivePage().blocks;
+                if(this.activeDrawerId) context = this.state.drawers[this.activeDrawerId].blocks;
+                const block = context.find(b => b.id === blockId);
                 if(block && block.type === 'TABLE') block.content[rowIdx][colIdx] = value;
             },
-
             addTableRow(blockId) {
-                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
-                if(block && block.type === 'TABLE' && block.content.length > 0) { block.content.push(new Array(block.content[0].length).fill("")); this.render(); }
+                let context = this.activeDrawerId ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                const block = context.find(b => b.id === blockId);
+                if(block && block.type === 'TABLE' && block.content.length > 0) { block.content.push(new Array(block.content[0].length).fill("")); this.activeDrawerId ? this.renderDrawer() : this.render(); }
             },
-
             addTableCol(blockId) {
-                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                let context = this.activeDrawerId ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                const block = context.find(b => b.id === blockId);
                 if(block && block.type === 'TABLE') {
                     block.content.forEach(row => row.push(""));
                     const cols = block.content[0].length; block.colWidths = Array(cols).fill(100 / cols);
-                    this.render();
+                    this.activeDrawerId ? this.renderDrawer() : this.render();
                 }
             },
-
             deleteTableRow(blockId, rowIdx) {
-                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
-                if(block && block.type === 'TABLE' && block.content.length > 1) { block.content.splice(rowIdx, 1); this.render(); } 
+                let context = this.activeDrawerId ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                const block = context.find(b => b.id === blockId);
+                if(block && block.type === 'TABLE' && block.content.length > 1) { block.content.splice(rowIdx, 1); this.activeDrawerId ? this.renderDrawer() : this.render(); } 
                 else this.customAlert("IMPOSSIBLE DE SUPPRIMER LA DERNIÈRE LIGNE.");
             },
-
             removeTableCol(blockId) {
-                const page = this.getActivePage(); const block = page.blocks.find(b => b.id === blockId);
+                let context = this.activeDrawerId ? this.state.drawers[this.activeDrawerId].blocks : this.getActivePage().blocks;
+                const block = context.find(b => b.id === blockId);
                 if(block && block.type === 'TABLE' && block.content[0].length > 1) {
                     block.content.forEach(row => row.pop());
                     const cols = block.content[0].length; block.colWidths = Array(cols).fill(100 / cols);
-                    this.render();
+                    this.activeDrawerId ? this.renderDrawer() : this.render();
                 } else this.customAlert("IMPOSSIBLE DE SUPPRIMER LA DERNIÈRE COLONNE.");
             },
-
             deleteBlock(blockId) {
                 this.customConfirm("SUPPRIMER CE BLOC ?", () => {
                     const page = this.getActivePage();
@@ -850,37 +1030,22 @@
                     this.render();
                 });
             },
-
             toggleCollapse(tabId, e) {
                 if(e) e.stopPropagation();
                 if(this.collapsedTabs.includes(tabId)) this.collapsedTabs = this.collapsedTabs.filter(id => id !== tabId);
                 else this.collapsedTabs.push(tabId);
                 this.render();
             },
-
             getFlatPages() {
                 const pages = [];
                 this.state.tabs.forEach(tab => { tab.pages.forEach(page => { pages.push({ tabId: tab.id, pageId: page.id, tabTitle: tab.title, pageTitle: page.title }); }); });
                 return pages;
             },
-
-            getTocLocation() {
-                for (const tab of this.state.tabs) {
-                    for (const page of tab.pages) {
-                        if (page.blocks.some(b => b.type === 'TOC')) {
-                            return { tabId: tab.id, pageId: page.id };
-                        }
-                    }
-                }
-                return null;
-            },
-
             goToPage(tabId, pageId) {
                 this.activeTabId = tabId; this.activePageId = pageId;
                 if(this.collapsedTabs.includes(tabId)) this.collapsedTabs = this.collapsedTabs.filter(id => id !== tabId);
                 this.render(); document.getElementById('main-content').scrollTop = 0;
             },
-
             handleDragStart(e, blockId) {
                 this.draggedBlockId = blockId; e.dataTransfer.effectAllowed = 'move';
                 setTimeout(() => { e.target.classList.add('opacity-30', 'border', 'border-dashed', 'border-accent'); }, 0);
@@ -916,46 +1081,6 @@
                 document.querySelectorAll('.block-wrapper').forEach(el => el.classList.remove('border-t-2', 'border-primary', 'pt-2'));
             },
 
-            handleImageUpload(event, blockId) {
-                const file = event.target.files[0]; 
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = (e) => { 
-                    const img = new Image();
-                    img.onload = () => {
-                        const MAX_WIDTH = 1200;
-                        const MAX_HEIGHT = 1200;
-                        let width = img.width;
-                        let height = img.height;
-
-                        if (width > height) {
-                            if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
-                        } else {
-                            if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; }
-                        }
-
-                        const canvas = document.createElement('canvas');
-                        canvas.width = width;
-                        canvas.height = height;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, width, height);
-
-                        const optimizedDataUrl = canvas.toDataURL('image/webp', 0.7);
-
-                        const page = this.getActivePage();
-                        const block = page.blocks.find(b => b.id === blockId);
-                        if (block) {
-                            if (block.type === 'TEXT_IMAGE') block.content.image = optimizedDataUrl;
-                            else if (block.type === 'IMAGE') block.content.url = optimizedDataUrl;
-                        }
-                        this.render(); 
-                    };
-                    img.src = e.target.result; 
-                };
-                reader.readAsDataURL(file);
-            },
-
             getActivePage() {
                 const tab = this.state.tabs.find(t => t.id === this.activeTabId);
                 return tab ? tab.pages.find(p => p.id === this.activePageId) : null;
@@ -966,12 +1091,16 @@
                 const toggleBtn = document.getElementById('toggle-mode-btn'); const editToolbar = document.getElementById('edit-toolbar');
                 
                 const sidebar = document.getElementById('sidebar');
-                if (this.sidebarOpen) {
-                    sidebar.classList.remove('w-0', 'border-r-0');
-                    sidebar.classList.add('w-64', 'border-r');
-                } else {
-                    sidebar.classList.add('w-0', 'border-r-0');
-                    sidebar.classList.remove('w-64', 'border-r');
+                const bookmarkTab = document.getElementById('bookmark-tab');
+                
+                if (this.sidebarOpen) { 
+                    sidebar.classList.remove('w-0', 'border-r-0'); 
+                    sidebar.classList.add('w-64', 'border-r'); 
+                    if(bookmarkTab) bookmarkTab.style.transform = 'translateX(16rem)';
+                } else { 
+                    sidebar.classList.add('w-0', 'border-r-0'); 
+                    sidebar.classList.remove('w-64', 'border-r'); 
+                    if(bookmarkTab) bookmarkTab.style.transform = 'translateX(0)';
                 }
 
                 if (this.isEditMode) {
@@ -981,8 +1110,13 @@
                     toggleBtn.classList.remove('hidden'); editToolbar.classList.add('hidden'); editToolbar.classList.remove('flex');
                     headerTitle.classList.remove('cursor-pointer', 'border-b', 'border-dashed', 'border-accent', 'hover:text-base', 'hover:bg-accent'); headerTitle.title = "";
                 }
+                
+                const drawerToolbar = document.getElementById('drawer-toolbar');
+                if (this.isEditMode && this.activeDrawerId) drawerToolbar.classList.remove('hidden');
+                else drawerToolbar.classList.add('hidden');
 
                 this.renderSidebar(); this.renderMainContent();
+                if(this.activeDrawerId) this.renderDrawer();
             },
 
             renderSidebar() {
@@ -1003,159 +1137,85 @@
                 html += `</nav>`; sidebar.innerHTML = html;
             },
 
-            renderMainContent() {
-                const main = document.getElementById('main-content'); const page = this.getActivePage();
-                if (!page) { main.innerHTML = `<div class="flex h-full items-center justify-center text-[#a3a3c2] opacity-50 italic animate-pulse">EN ATTENTE DE CONNEXION...</div>`; return; }
+            getTextFormatToolbarHtml(blockId, isDrawer) {
+                const isDrawerAttr = isDrawer ? `data-is-drawer="true"` : ``;
+                return `<div class="mb-1 flex gap-1 bg-base border border-primary border-opacity-50 p-1 w-fit rounded-sm">
+                    <button onmousedown="event.preventDefault(); app.formatText('bold')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base font-bold transition-colors">B</button>
+                    <button onmousedown="event.preventDefault(); app.formatText('italic')" class="px-2 text-sm text-accent hover:bg-accent hover:text-base italic transition-colors">I</button>
+                    <button onmousedown="event.preventDefault(); app.formatText('underline')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base underline transition-colors">U</button>
+                    <div class="w-px bg-primary opacity-30 mx-1"></div>
+                    <button onmousedown="event.preventDefault(); app.formatText('foreColor')" class="px-2 text-primary hover:bg-primary hover:text-base transition-colors" title="Couleur du texte">
+                        <svg class="w-4 h-4 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a10 10 0 1 1 10-10c0 2-2 3-2 3s-1 0-1-2a3 3 0 1 0-3 3c0 2 2 2 2 2s-1 2-2 2h-4z"/><circle cx="7.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="10.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="14.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/></svg>
+                    </button>
+                    <div class="w-px bg-primary opacity-30 mx-1"></div>
+                    <button onmousedown="event.preventDefault(); app.formatText('createDrawer')" class="px-2 text-primary hover:bg-primary hover:text-base transition-colors" title="Créer un mot-tiroir">
+                        <svg class="w-4 h-4 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="10" y1="6" x2="14" y2="6"/><line x1="10" y1="12" x2="14" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+                    </button>
+                    <button onmousedown="event.preventDefault(); app.formatText('createLink')" class="px-2 text-accent hover:bg-accent hover:text-base transition-colors" title="Créer un lien">
+                        <svg class="w-4 h-4 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    </button>
+                    <div class="w-px bg-primary opacity-30 mx-1"></div>
+                    <button onmousedown="event.preventDefault(); app.formatText('insertCurrency')" class="px-2 text-warn hover:bg-warn hover:text-base transition-colors font-bold" title="Insérer devise">
+                        <svg class="w-4 h-4 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8"/><path d="M10 10h4"/><path d="M10 14h4"/></svg>
+                    </button>
+                </div>`;
+            },
 
-                let html = `<div class="max-w-3xl mx-auto book-content pb-12">`;
-
-                page.blocks.forEach(block => {
-                    const dragAttrs = this.isEditMode ? `ondragstart="app.handleDragStart(event, '${block.id}')" ondragover="app.handleDragOver(event)" ondragleave="app.handleDragLeave(event)" ondrop="app.handleDrop(event, '${block.id}')" ondragend="app.handleDragEnd(event)"` : '';
+            generateBlocksHtml(blocks, isDrawer = false) {
+                let html = "";
+                blocks.forEach(block => {
+                    const dragAttrs = (this.isEditMode && !isDrawer) ? `ondragstart="app.handleDragStart(event, '${block.id}')" ondragover="app.handleDragOver(event)" ondragleave="app.handleDragLeave(event)" ondrop="app.handleDrop(event, '${block.id}')" ondragend="app.handleDragEnd(event)"` : '';
                     html += `<div class="group relative mb-6 block-wrapper transition-all duration-200" data-block-id="${block.id}" ${dragAttrs}>`;
                     
                     if (this.isEditMode) {
-                        html += `<div class="absolute -left-12 top-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-1 bg-panel border border-primary rounded p-1 z-10"><div class="text-primary cursor-grab active:cursor-grabbing hover:text-accent text-base p-1 text-center" title="Maintenir pour déplacer" onmousedown="this.closest('.block-wrapper').setAttribute('draggable', true)" onmouseup="this.closest('.block-wrapper').setAttribute('draggable', false)" onmouseleave="this.closest('.block-wrapper').setAttribute('draggable', false)">⣿</div><button onclick="app.deleteBlock('${block.id}')" class="text-danger hover:text-base hover:bg-danger text-xs p-1 mt-1 border-t border-danger border-opacity-30 pt-1" title="Supprimer">✕</button></div>`;
+                        const deleteFunc = isDrawer ? `app.deleteDrawerBlock('${block.id}')` : `app.deleteBlock('${block.id}')`;
+                        html += `<div class="absolute -left-8 md:-left-12 top-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-1 bg-panel border border-primary rounded p-1 z-10">`;
+                        if (!isDrawer) html += `<div class="text-primary cursor-grab active:cursor-grabbing hover:text-accent text-base p-1 text-center" title="Maintenir pour déplacer" onmousedown="this.closest('.block-wrapper').setAttribute('draggable', true)" onmouseup="this.closest('.block-wrapper').setAttribute('draggable', false)" onmouseleave="this.closest('.block-wrapper').setAttribute('draggable', false)">⣿</div>`;
+                        html += `<button onclick="${deleteFunc}" class="text-danger hover:text-base hover:bg-danger text-xs p-1 mt-1 border-t border-danger border-opacity-30 pt-1" title="Supprimer">✕</button></div>`;
                     }
 
                     if (block.type === 'TITLE') {
-                        if (this.isEditMode) html += `<input type="text" class="w-full text-3xl font-bold text-accent border-b-2 border-dashed border-accent p-2 focus:outline-none focus:border-primary bg-transparent uppercase tracking-widest font-heading" value="${block.content}" oninput="app.updateBlockContent('${block.id}', this.value)">`;
-                        else html += `<h1>${block.content}</h1>`;
+                        if (this.isEditMode) {
+                            const updateFunc = isDrawer ? `app.updateDrawerBlockContent('${block.id}', this.value)` : `app.updateBlockContent('${block.id}', this.value)`;
+                            html += `<input type="text" class="w-full text-2xl font-bold text-accent border-b-2 border-dashed border-accent p-2 focus:outline-none focus:border-primary bg-transparent uppercase tracking-widest font-heading" value="${block.content}" oninput="${updateFunc}">`;
+                        } else html += `<h1>${block.content}</h1>`;
                     } 
                     else if (block.type === 'TEXT') {
                         if (this.isEditMode) {
-                            html += `<div class="mb-1 flex gap-1 bg-base border border-primary border-opacity-50 p-1 w-fit rounded-sm">
-                                <button onmousedown="event.preventDefault(); app.formatText('bold')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base font-bold transition-colors" title="Gras">B</button>
-                                <button onmousedown="event.preventDefault(); app.formatText('italic')" class="px-2 text-sm text-accent hover:bg-accent hover:text-base italic transition-colors" title="Italique">I</button>
-                                <button onmousedown="event.preventDefault(); app.formatText('underline')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base underline transition-colors" title="Souligné">U</button>
-                                <div class="w-px bg-primary opacity-30 mx-1"></div>
-                                <button onmousedown="event.preventDefault(); app.formatText('foreColor')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base transition-colors" title="Couleur du texte">🎨</button>
-                                <div class="w-px bg-primary opacity-30 mx-1"></div>
-                                <button onmousedown="event.preventDefault(); app.formatText('createLink')" class="px-2 text-sm text-accent hover:bg-accent hover:text-base transition-colors" title="Créer un lien">🔗</button>
-                                <div class="w-px bg-primary opacity-30 mx-1"></div>
-                                <button onmousedown="event.preventDefault(); app.formatText('insertCurrency')" class="px-2 text-sm text-warn hover:bg-warn hover:text-base transition-colors font-bold" title="Insérer le logo D€VI$€">🪙</button>
-                            </div>
-                            <div class="w-full min-h-[8rem] border border-dashed border-primary p-3 focus:outline-none focus:border-accent bg-primary/5 text-muted rich-text" contenteditable="true" data-block-id="${block.id}" onblur="app.updateBlockContent('${block.id}', this.innerHTML)">${block.content}</div>`;
+                            const isDrawerAttr = isDrawer ? `data-is-drawer="true"` : ``;
+                            html += this.getTextFormatToolbarHtml(block.id, isDrawer);
+                            html += `<div class="w-full min-h-[8rem] border border-dashed border-primary p-3 focus:outline-none focus:border-accent bg-primary/5 text-muted rich-text" contenteditable="true" data-block-id="${block.id}" ${isDrawerAttr} onblur="app.forceSaveActiveBlock()">${block.content}</div>`;
                         } else html += `<div class="rich-text">${block.content}</div>`;
                     }
-                    else if (block.type === 'TEXT_IMAGE') {
-                        const flexDir = block.content.imagePos === 'left' ? 'md:flex-row-reverse' : 'md:flex-row';
-                        const height = block.content.imageHeight || 400;
-                        
-                        html += `<div class="flex flex-col ${flexDir} gap-6 w-full my-4">`;
-                        
-                        html += `<div class="w-full md:w-1/2 flex-1 flex flex-col gap-4">`;
-                        
-                        if(this.isEditMode) {
-                            html += `<div class="mb-1 flex gap-1 bg-base border border-primary border-opacity-50 p-1 w-fit rounded-sm">
-                                <button onmousedown="event.preventDefault(); app.formatText('bold')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base font-bold transition-colors">B</button>
-                                <button onmousedown="event.preventDefault(); app.formatText('italic')" class="px-2 text-sm text-accent hover:bg-accent hover:text-base italic transition-colors">I</button>
-                                <button onmousedown="event.preventDefault(); app.formatText('underline')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base underline transition-colors">U</button>
-                                <div class="w-px bg-primary opacity-30 mx-1"></div>
-                                <button onmousedown="event.preventDefault(); app.formatText('foreColor')" class="px-2 text-sm text-primary hover:bg-primary hover:text-base transition-colors">🎨</button>
-                                <div class="w-px bg-primary opacity-30 mx-1"></div>
-                                <button onmousedown="event.preventDefault(); app.formatText('insertCurrency')" class="px-2 text-sm text-warn hover:bg-warn hover:text-base transition-colors font-bold" title="Insérer le logo D€VI$€">🪙</button>
-                            </div>`;
-                        }
-
-                        block.content.blocks.forEach(sub => {
-                            html += `<div class="relative group/sub w-full">`;
-                            
-                            if (this.isEditMode) {
-                                html += `<div class="absolute -left-8 top-0 opacity-0 group-hover/sub:opacity-100 transition-opacity flex flex-col bg-panel border border-primary rounded z-10">
-                                    <button onclick="app.moveSubBlock('${block.id}', '${sub.id}', -1)" class="text-primary hover:text-accent text-[10px] px-1 py-0.5">▲</button>
-                                    <button onclick="app.moveSubBlock('${block.id}', '${sub.id}', 1)" class="text-primary hover:text-accent text-[10px] px-1 py-0.5">▼</button>
-                                    <button onclick="app.deleteSubBlock('${block.id}', '${sub.id}')" class="text-danger hover:bg-danger hover:text-base text-[10px] px-1 py-0.5 border-t border-danger border-opacity-30">✕</button>
-                                </div>`;
-                            }
-
-                            if (sub.type === 'TITLE') {
-                                if (this.isEditMode) html += `<input type="text" class="w-full text-2xl font-bold text-accent border-b border-dashed border-accent py-1 focus:outline-none focus:border-primary bg-transparent uppercase tracking-wider mb-2 font-heading" value="${sub.content}" oninput="app.updateSubBlockContent('${block.id}', '${sub.id}', this.value)">`;
-                                else html += `<h2 class="text-2xl font-bold text-accent border-b border-accent border-opacity-50 pb-1 mb-3 uppercase tracking-wider font-heading">${sub.content}</h2>`;
-                            } else {
-                                if (this.isEditMode) html += `<div class="w-full min-h-[4rem] border border-dashed border-primary border-opacity-50 p-2 focus:outline-none focus:border-accent bg-primary/5 text-muted rich-text text-sm" contenteditable="true" data-block-id="${block.id}" data-sub-id="${sub.id}" onblur="app.updateSubBlockContent('${block.id}', '${sub.id}', this.innerHTML)">${sub.content}</div>`;
-                                else html += `<div class="rich-text">${sub.content}</div>`;
-                            }
-                            html += `</div>`;
-                        });
-
-                        if (this.isEditMode) {
-                            html += `<div class="flex gap-2 mt-2 pt-2 border-t border-dashed border-primary border-opacity-30">
-                                <button onclick="app.addSubBlock('${block.id}', 'TITLE')" class="text-[10px] text-primary hover:text-base hover:bg-primary border border-primary px-2 py-1 rounded-sm">+ TITRE</button>
-                                <button onclick="app.addSubBlock('${block.id}', 'TEXT')" class="text-[10px] text-primary hover:text-base hover:bg-primary border border-primary px-2 py-1 rounded-sm">+ TEXTE</button>
-                            </div>`;
-                        }
-
-                        html += `</div>`;
-
-                        html += `<div class="w-full md:w-1/2 flex-1 flex flex-col items-center justify-start relative">`;
-                        
-                        if (this.isEditMode) {
-                            html += `<div class="w-full mb-2 bg-base border border-primary border-opacity-30 p-1 flex items-center justify-between">
-                                <span class="text-[10px] text-primary font-bold tracking-widest pl-2">HAUTEUR:</span>
-                                <input type="range" min="100" max="800" value="${height}" oninput="app.updateImageHeight('${block.id}', this.value)" class="w-1/2 h-1 bg-panel appearance-none outline-none border border-primary cursor-pointer">
-                            </div>`;
-                        }
-
-                        if (this.isEditMode && !block.content.image) {
-                            html += `<div class="w-full border-2 border-dashed border-primary p-8 text-center bg-primary/5 flex-1 flex items-center justify-center min-h-[200px]"><label class="cursor-pointer text-primary hover:text-accent font-medium tracking-widest uppercase text-sm">[ UPLOAD IMAGE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
-                        } else {
-                            const imgSrc = block.content.image;
-                            if (this.isEditMode) {
-                                html += `<div class="relative w-full flex justify-center"><img id="img-${block.id}" src="${imgSrc}" class="object-contain w-auto" style="max-height: ${height}px;" alt="Illustration mixte"><label class="absolute top-2 right-2 bg-base border border-primary px-2 py-1 text-[10px] text-primary cursor-pointer hover:bg-primary hover:text-base transition-colors uppercase">[ OVERRIDE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
-                            } else html += `<img src="${imgSrc}" class="object-contain w-auto mx-auto my-0" style="max-height: ${height}px;" alt="Illustration mixte">`;
-                        }
-                        
-                        if (this.isEditMode) {
-                            html += `<button onclick="app.toggleTextImagePos('${block.id}')" class="mt-3 text-[10px] font-bold text-warn border border-warn px-3 py-1 hover:bg-warn hover:text-base transition-colors uppercase">↔ INVERSER POSITION</button>`;
-                        }
-                        html += `</div>`;
-
-                        html += `</div>`;
-                    }
                     else if (block.type === 'TABLE') {
-                        if (!block.colWidths || block.colWidths.length !== block.content[0].length) {
-                            block.colWidths = Array(block.content[0].length).fill(100 / block.content[0].length);
-                        }
-
+                        if (!block.colWidths || block.colWidths.length !== block.content[0].length) block.colWidths = Array(block.content[0].length).fill(100 / block.content[0].length);
                         if (this.isEditMode) {
-                            html += `<div class="mb-2 w-full border border-accent border-dashed p-2 bg-base">
-                                <table class="w-full border-collapse table-block-${block.id} table-fixed break-words relative">
-                                <colgroup>`;
+                            html += `<div class="mb-2 w-full border border-accent border-dashed p-2 bg-base"><table class="w-full border-collapse table-block-${block.id} table-fixed break-words relative"><colgroup>`;
                             block.colWidths.forEach(w => { html += `<col style="width: ${w}%">`; });
                             html += `</colgroup>`;
-                            
                             block.content.forEach((row, rIdx) => {
                                 html += `<tr>`;
                                 row.forEach((cell, cIdx) => {
-                                    html += `<td class="border border-primary border-opacity-50 p-1 relative-cell align-top">
-                                        <div contenteditable="true" class="w-full bg-transparent text-muted focus:outline-none focus:text-primary text-sm outline-none min-h-[1.5rem] text-justify hyphens-auto" onblur="app.updateTableCell('${block.id}', ${rIdx}, ${cIdx}, this.innerHTML)">${cell}</div>`;
-                                    
-                                    if (rIdx === 0 && cIdx < row.length - 1) {
-                                        html += `<div class="table-resizer" onmousedown="app.initResize(event, '${block.id}', ${cIdx})"></div>`;
-                                    }
+                                    html += `<td class="border border-primary border-opacity-50 p-1 relative-cell align-top"><div contenteditable="true" class="w-full bg-transparent text-muted focus:outline-none focus:text-primary outline-none min-h-[1.5rem] text-justify hyphens-auto" onblur="app.updateTableCell('${block.id}', ${rIdx}, ${cIdx}, this.innerHTML)">${cell}</div>`;
+                                    if (rIdx === 0 && cIdx < row.length - 1) html += `<div class="table-resizer" onmousedown="app.initResize(event, '${block.id}', ${cIdx}, ${isDrawer})"></div>`;
                                     html += `</td>`;
                                 });
-                                html += `<td class="w-8 text-center align-middle border-b border-primary border-opacity-50"><button onclick="app.deleteTableRow('${block.id}', ${rIdx})" class="text-danger hover:text-base hover:bg-danger opacity-50 hover:opacity-100 px-1 rounded" title="Supprimer la ligne">✕</button></td>`;
-                                html += `</tr>`;
+                                html += `<td class="w-8 text-center align-middle border-b border-primary border-opacity-50"><button onclick="app.deleteTableRow('${block.id}', ${rIdx})" class="text-danger hover:text-base hover:bg-danger opacity-50 hover:opacity-100 px-1 rounded" title="Supprimer la ligne">✕</button></td></tr>`;
                             });
-                            html += `</table></div>
-                            <div class="flex gap-4 mb-2">
+                            html += `</table></div><div class="flex gap-4 mb-2">
                                 <button onclick="app.addTableRow('${block.id}')" class="text-xs text-primary hover:text-accent transition-colors flex items-center gap-1">+ LIGNE</button>
                                 <div class="w-px bg-primary opacity-30"></div>
                                 <button onclick="app.addTableCol('${block.id}')" class="text-xs text-primary hover:text-accent transition-colors flex items-center gap-1">+ COLONNE</button>
                                 <button onclick="app.removeTableCol('${block.id}')" class="text-xs text-danger hover:text-base hover:bg-danger px-1 transition-colors flex items-center gap-1">- COLONNE</button>
                             </div>`;
                         } else {
-                            html += `<div class="w-full mb-4">
-                                <table class="w-full border-collapse border border-primary text-sm text-left table-fixed break-words">
-                                <colgroup>`;
+                            html += `<div class="w-full mb-4"><table class="w-full border-collapse border border-primary text-left table-fixed break-words"><colgroup>`;
                             block.colWidths.forEach(w => { html += `<col style="width: ${w}%">`; });
                             html += `</colgroup>`;
                             block.content.forEach((row, rIdx) => {
                                 html += `<tr class="${rIdx === 0 ? 'bg-primary/10 text-primary font-bold tracking-wider uppercase' : 'text-muted hover:bg-accent/5 transition-colors'}">`;
                                 row.forEach((cell) => {
-                                    const tag = rIdx === 0 ? 'th' : 'td';
-                                    const textAlignment = rIdx === 0 ? 'text-center font-heading' : 'text-justify hyphens-auto';
+                                    const tag = rIdx === 0 ? 'th' : 'td'; const textAlignment = rIdx === 0 ? 'text-center font-heading' : 'text-justify hyphens-auto';
                                     html += `<${tag} class="border border-primary border-opacity-30 p-3 align-top ${textAlignment}">${cell}</${tag}>`;
                                 });
                                 html += `</tr>`;
@@ -1164,108 +1224,131 @@
                         }
                     }
                     else if (block.type === 'IMAGE') {
-                        const imgSrc = block.content.url;
-                        const height = block.content.height || 400;
-
+                        const imgSrc = block.content.url; const height = block.content.height || 400;
                         if (this.isEditMode) {
-                            html += `<div class="w-full mb-2 bg-base border border-primary border-opacity-30 p-2 flex items-center justify-between">
-                                <span class="text-xs text-primary font-bold tracking-widest pl-2">RÉGLAGE HAUTEUR:</span>
-                                <input type="range" min="100" max="1000" value="${height}" oninput="app.updateImageHeight('${block.id}', this.value)" class="w-2/3 h-1 bg-panel appearance-none outline-none border border-primary cursor-pointer">
-                            </div>`;
+                            html += `<div class="w-full mb-2 bg-base border border-primary border-opacity-30 p-2 flex items-center justify-between"><span class="text-xs text-primary font-bold tracking-widest pl-2">RÉGLAGE HAUTEUR:</span><input type="range" min="100" max="1000" value="${height}" oninput="app.updateImageHeight('${block.id}', this.value)" class="w-2/3 h-1 bg-panel appearance-none outline-none border border-primary cursor-pointer"></div>`;
                         }
-
                         if (this.isEditMode && !imgSrc) {
-                            html += `<div class="border-2 border-dashed border-primary p-8 text-center bg-primary/5"><label class="cursor-pointer text-primary hover:text-accent font-medium tracking-widest uppercase">[ UPLOAD IMAGE DATA ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
+                            html += `<div class="border-2 border-dashed border-primary p-8 text-center bg-primary/5"><label class="cursor-pointer text-primary hover:text-accent font-medium tracking-widest uppercase">[ UPLOAD IMAGE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
                         } else {
                             if (this.isEditMode) {
-                                html += `<div class="relative w-full flex justify-center"><img id="img-${block.id}" src="${imgSrc}" class="object-contain w-auto" style="max-height: ${height}px;" alt="Illustration JDR"><label class="absolute top-2 right-2 bg-base border border-primary px-2 py-1 text-[10px] text-primary cursor-pointer hover:bg-primary hover:text-base transition-colors uppercase">[ OVERRIDE IMAGE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
-                            } else html += `<img src="${imgSrc}" class="object-contain w-auto mx-auto my-0" style="max-height: ${height}px;" alt="Illustration JDR">`;
+                                html += `<div class="relative w-full flex justify-center"><img id="img-${block.id}" src="${imgSrc}" class="object-contain w-auto" style="max-height: ${height}px;" alt="Illustration"><label class="absolute top-2 right-2 bg-base border border-primary px-2 py-1 text-[10px] text-primary cursor-pointer hover:bg-primary hover:text-base transition-colors uppercase">[ OVERRIDE IMAGE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
+                            } else html += `<img src="${imgSrc}" class="object-contain w-auto mx-auto my-0" style="max-height: ${height}px;" alt="Illustration">`;
                         }
                     }
-                    else if (block.type === 'TOC') {
+                    else if (block.type === 'TEXT_IMAGE') {
+                        const flexDir = block.content.imagePos === 'left' ? 'md:flex-row-reverse' : 'md:flex-row';
+                        const isDrawerAttr = isDrawer ? `data-is-drawer="true"` : ``;
+                        
+                        html += `<div class="flex flex-col ${flexDir} gap-6 w-full my-4">`;
+                        
+                        html += `<div class="w-full md:w-1/2 flex-1">`;
+                        if (this.isEditMode) {
+                            html += this.getTextFormatToolbarHtml(block.id, isDrawer);
+                            html += `<div class="w-full min-h-[8rem] border border-dashed border-primary p-3 focus:outline-none focus:border-accent bg-primary/5 text-muted rich-text" contenteditable="true" data-block-id="${block.id}" ${isDrawerAttr} onblur="app.updateBlockContent('${block.id}', this.innerHTML)">${block.content.text}</div>`;
+                        } else {
+                            html += `<div class="rich-text h-full flex flex-col justify-center">${block.content.text}</div>`;
+                        }
+                        html += `</div>`;
+
+                        html += `<div class="w-full md:w-1/2 flex-1 flex flex-col items-center justify-center">`;
+                        if (this.isEditMode && !block.content.image) {
+                            html += `<div class="w-full border-2 border-dashed border-primary p-8 text-center bg-primary/5 flex-1 flex items-center justify-center"><label class="cursor-pointer text-primary hover:text-accent font-medium tracking-widest uppercase text-sm">[ UPLOAD IMAGE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
+                        } else {
+                            if (this.isEditMode) {
+                                html += `<div class="relative w-full text-center"><img src="${block.content.image}" class="mx-auto" alt="Illustration mixte"><label class="absolute top-2 right-2 bg-base border border-primary px-2 py-1 text-[10px] text-primary cursor-pointer hover:bg-primary hover:text-base transition-colors uppercase">[ OVERRIDE ]<input type="file" accept="image/*" class="hidden" onchange="app.handleImageUpload(event, '${block.id}')"></label></div>`;
+                            } else html += `<img src="${block.content.image}" class="mx-auto my-0" alt="Illustration mixte">`;
+                        }
+                        
+                        if (this.isEditMode) {
+                            html += `<button onclick="app.toggleTextImagePos('${block.id}')" class="mt-3 text-xs text-warn border border-warn px-3 py-1 hover:bg-warn hover:text-base transition-colors uppercase">↔ Inverser Position</button>`;
+                        }
+                        html += `</div></div>`;
+                    }
+                    else if (block.type === 'TOC' && !isDrawer) {
                         if (this.isEditMode) {
                             html += `<div class="mb-4 bg-base border border-success border-opacity-50 p-4 text-center relative group">
-                                <div class="absolute -left-12 top-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-1 bg-panel border border-primary rounded p-1 z-10"><div class="text-primary cursor-grab active:cursor-grabbing hover:text-accent text-base p-1 text-center" title="Maintenir pour déplacer" onmousedown="this.closest('.block-wrapper').setAttribute('draggable', true)" onmouseup="this.closest('.block-wrapper').setAttribute('draggable', false)" onmouseleave="this.closest('.block-wrapper').setAttribute('draggable', false)">⣿</div><button onclick="app.deleteBlock('${block.id}')" class="text-danger hover:bg-danger hover:text-base text-xs p-1 mt-1 border-t border-danger border-opacity-30 pt-1" title="Supprimer">✕</button></div>
                                 <input type="text" class="w-full text-xl font-bold text-success border-b-2 border-dashed border-success p-2 focus:outline-none bg-transparent uppercase tracking-widest text-center mb-4 font-heading" value="${block.content}" oninput="app.updateBlockContent('${block.id}', this.value)">
                                 <p class="text-muted text-sm italic mb-4">[ Aperçu du sommaire ]</p>
-                                <div class="text-left opacity-50 pointer-events-none scale-95 origin-top border border-success border-opacity-20 p-4 bg-success/5">
-                                    <ul class="space-y-4">`;
-                            
-                            app.state.tabs.forEach(tab => {
-                                html += `<li><div class="text-sm font-bold text-primary uppercase tracking-wider mb-1 border-b border-primary border-opacity-20 font-heading">${tab.title}</div><ul class="pl-4 space-y-1">`;
-                                tab.pages.forEach(p => { html += `<li><span class="text-muted text-xs flex items-center gap-2"><span class="text-success opacity-50 text-[10px]">▶</span> ${p.title}</span></li>`; });
-                                html += `</ul></li>`;
-                            });
-                            
-                            html += `       </ul>
-                                </div>
-                            </div>`;
+                                <div class="text-left opacity-50 pointer-events-none scale-95 origin-top border border-success border-opacity-20 p-4 bg-success/5"><ul class="space-y-4">`;
+                            app.state.tabs.forEach(tab => { html += `<li><div class="text-sm font-bold text-primary uppercase tracking-wider mb-1 border-b border-primary border-opacity-20 font-heading">${tab.title}</div><ul class="pl-4 space-y-1">`; tab.pages.forEach(p => { html += `<li><span class="text-muted text-xs flex items-center gap-2"><span class="text-success opacity-50 text-[10px]">▶</span> ${p.title}</span></li>`; }); html += `</ul></li>`; });
+                            html += `</ul></div></div>`;
                         } else {
-                            html += `<div class="mb-8 border border-success border-opacity-30 p-6 bg-success/5">
-                                <h2 class="text-2xl font-bold text-success border-b border-success border-opacity-50 pb-2 mb-6 uppercase tracking-wider text-center font-heading">${block.content}</h2>
-                                <ul class="space-y-6">`;
-                            
-                            app.state.tabs.forEach(tab => {
-                                html += `<li>
-                                    <div class="text-lg font-bold text-primary uppercase tracking-wider mb-2 border-b border-primary border-opacity-20 font-heading">${tab.title}</div>
-                                    <ul class="pl-6 space-y-2">`;
-                                tab.pages.forEach(p => {
-                                    html += `<li><a href="#" onclick="app.goToPage('${tab.id}', '${p.id}'); return false;" class="text-muted hover:text-accent transition-colors flex items-center gap-2"><span class="text-success opacity-50 text-xs">▶</span> ${p.title}</a></li>`;
-                                });
-                                html += `</ul></li>`;
-                            });
+                            html += `<div class="mb-8 border border-success border-opacity-30 p-6 bg-success/5"><h2 class="text-2xl font-bold text-success border-b border-success border-opacity-50 pb-2 mb-6 uppercase tracking-wider text-center font-heading">${block.content}</h2><ul class="space-y-6">`;
+                            app.state.tabs.forEach(tab => { html += `<li><div class="text-lg font-bold text-primary uppercase tracking-wider mb-2 border-b border-primary border-opacity-20 font-heading">${tab.title}</div><ul class="pl-6 space-y-2">`; tab.pages.forEach(p => { html += `<li><a href="#" onclick="app.goToPage('${tab.id}', '${p.id}'); return false;" class="text-muted hover:text-accent transition-colors flex items-center gap-2"><span class="text-success opacity-50 text-xs">▶</span> ${p.title}</a></li>`; }); html += `</ul></li>`; });
                             html += `</ul></div>`;
                         }
                     }
-
                     html += `</div>`;
                 });
+                return html;
+            },
+
+            renderMainContent() {
+                const main = document.getElementById('main-content'); const page = this.getActivePage();
+                if (!page) { main.innerHTML = `<div class="flex h-full items-center justify-center text-muted opacity-50 italic animate-pulse">EN ATTENTE DE CONNEXION...</div>`; return; }
+
+                let html = `<div class="max-w-3xl mx-auto book-content pb-12">`;
+                html += this.generateBlocksHtml(page.blocks, false);
 
                 if (!this.isEditMode) {
                     const flatPages = this.getFlatPages(); const currentIndex = flatPages.findIndex(p => p.tabId === this.activeTabId && p.pageId === this.activePageId);
                     if (currentIndex !== -1) {
-                        html += `<div class="mt-16 pt-6 border-t border-[#00ffcc] border-opacity-30 flex justify-between items-center">`;
+                        html += `<div class="mt-16 pt-6 border-t border-primary border-opacity-30 flex justify-between items-center">`;
                         if (currentIndex > 0) { const prev = flatPages[currentIndex - 1]; html += `<button onclick="app.goToPage('${prev.tabId}', '${prev.pageId}')" class="retro-btn px-4 py-2 text-xs flex items-center gap-2 max-w-[45%] truncate" title="${prev.pageTitle}">◀ PREV</button>`; } else html += `<div></div>`;
                         if (currentIndex < flatPages.length - 1) { const next = flatPages[currentIndex + 1]; html += `<button onclick="app.goToPage('${next.tabId}', '${next.pageId}')" class="retro-btn px-4 py-2 text-xs flex items-center gap-2 max-w-[45%] truncate" title="${next.pageTitle}">NEXT ▶</button>`; } else html += `<div></div>`;
                         html += `</div>`;
                     }
                 }
-
                 html += `</div>`; main.innerHTML = html;
+            },
+
+            renderDrawer() {
+                if (!this.activeDrawerId) return;
+                const drawer = this.state.drawers[this.activeDrawerId];
+                if (!drawer) return;
+
+                document.getElementById('drawer-title').textContent = drawer.title;
+                const drawerContent = document.getElementById('drawer-content');
+                
+                let html = this.generateBlocksHtml(drawer.blocks, true);
+                if (drawer.blocks.length === 0 && !this.isEditMode) {
+                    html = `<p class="text-muted italic opacity-50">Aucune donnée trouvée dans les archives.</p>`;
+                }
+                
+                drawerContent.innerHTML = html;
+
+                const toolbar = document.getElementById('drawer-toolbar');
+                if (this.isEditMode) {
+                    toolbar.classList.remove('hidden');
+                    toolbar.classList.add('flex');
+                    drawerContent.classList.replace('pb-24', 'pb-32');
+                } else {
+                    toolbar.classList.add('hidden');
+                    toolbar.classList.remove('flex');
+                    drawerContent.classList.replace('pb-32', 'pb-24');
+                }
             },
 
             compileAndDownload() {
                 const wasInEditMode = this.isEditMode;
                 if(this.isEditMode) { this.isEditMode = false; this.render(); }
-                
-                // NOUVEAU : Clonage du document en mémoire
                 const htmlClone = document.documentElement.cloneNode(true);
-                
-                // NOUVEAU : Scanner de sécurité pour détruire les scripts parasites (ex: Firebase de Google)
                 const scripts = htmlClone.querySelectorAll('script');
                 scripts.forEach(script => {
                     const isTailwind = script.src && script.src.includes('tailwindcss');
                     const isAppState = script.id === 'app-state';
                     const isAppEngine = script.id === 'app-engine';
-                    
-                    // Si ce n'est ni Tailwind, ni nos données, ni notre moteur -> On supprime.
-                    if (!isTailwind && !isAppState && !isAppEngine) {
-                        script.parentNode.removeChild(script);
-                    }
+                    if (!isTailwind && !isAppState && !isAppEngine) script.parentNode.removeChild(script);
                 });
-
-                // Mise à jour de l'état UNIQUEMENT dans le clone purifié
                 const stateScript = htmlClone.querySelector('#app-state'); 
                 if(stateScript) stateScript.textContent = JSON.stringify(this.state, null, 4);
-                
                 let htmlCode = "<!DOCTYPE html>\n" + htmlClone.outerHTML;
-                
                 const blob = new Blob([htmlCode], {type: "text/html;charset=utf-8"});
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement("a"); a.href = url;
                 const filename = this.state.bookTitle.toLowerCase().replace(/[^a-z0-9]/g, '_') + '.html'; a.download = filename;
                 document.body.appendChild(a); a.click();
-                
                 setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); if(wasInEditMode) { this.isEditMode = true; this.render(); } }, 100);
             }
         };
